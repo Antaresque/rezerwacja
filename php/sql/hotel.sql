@@ -163,7 +163,7 @@ ALTER TABLE `rezerwacje`
   ADD CONSTRAINT `rez_kl` FOREIGN KEY (`id_klienta`) REFERENCES `klienci` (`id_klienta`),
   ADD CONSTRAINT `rez_pok` FOREIGN KEY (`id_pokoju`) REFERENCES `pokoje` (`id_pokoju`),
   ADD CONSTRAINT `rez_pr` FOREIGN KEY (`id_pracownika`) REFERENCES `pracownicy` (`id_pracownika`);
- 
+
 
 COMMIT;
 
