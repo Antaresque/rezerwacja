@@ -8,6 +8,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
   imports: [
     CommonModule
   ],
+  exports: [HeaderComponent, FooterComponent, PagenotfoundComponent],
   declarations: [HeaderComponent, FooterComponent, PagenotfoundComponent]
 })
 export class PublicModule { }

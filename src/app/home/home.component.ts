@@ -1,3 +1,4 @@
+import { PokojeService } from './../_core/pokoje/pokoje.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  dane: any = [];
+
+  constructor(private pokoje: PokojeService) { }
 
   ngOnInit() {
+    this.pokoje.get().subscribe(res => this.dane = res.json());
   }
 
 }

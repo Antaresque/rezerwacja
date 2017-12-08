@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID  } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
@@ -34,7 +35,8 @@ import { RoutingModule } from './routing.module';
     SzefModule,
     UserModule,
     PublicModule,
-    RoutingModule
+    RoutingModule,
+    HttpModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pl'}

@@ -1,3 +1,5 @@
+import { PokojeService } from './pokoje/pokoje.service';
+import { PracownicyService } from './pracownicy/pracownicy.service';
 import {
   ModuleWithProviders,
   NgModule,
@@ -5,7 +7,6 @@ import {
   SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
-
 
 @NgModule({
   imports: [
@@ -24,7 +25,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
         ngModule: CoreModule,
-        providers: [HttpModule]
+        providers: [PracownicyService, PokojeService, HttpModule]
     };
   }
 
