@@ -3,7 +3,7 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class PokojeService{
+export class PokojeService {
 
   headers: Headers;
   api_link = 'http://localhost/angular-rezerwacja/php/api.php/';
@@ -18,7 +18,7 @@ export class PokojeService{
    * gets data idk
    */
   get() {
-    return this.http.get(this.api_link + this.name, {headers: this.headers});
+    return this.http.get(this.api_link + this.name, {headers: this.headers})
+      .map(res => res.json());
   }
-
 }

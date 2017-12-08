@@ -9,11 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   dane: any = [];
+  error: string = null;
 
   constructor(private pokoje: PokojeService) { }
 
   ngOnInit() {
-    this.pokoje.get().subscribe(res => this.dane = res.json());
+    this.pokoje.get().subscribe(
+      res =>  {
+        if('message' in res) {
+          this.error = res['message'];
+        }
+        else this.dane = res;
+      });
   }
-
 }
