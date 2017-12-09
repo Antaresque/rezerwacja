@@ -13,9 +13,9 @@ if(!empty($request)) {                   // nie ma pustego zapytania wiec musi s
     if(checkTokenAccess('klient'))
       include_once($path.'mydata.php');
   }
-  else $result = error_message($result, 'UNDEFINED_FUNCTION');
+  else error_message('UNDEFINED_FUNCTION');
 }
-else $result = error_message($result, 'UNDEFINED_FUNCTION');
+else error_message('UNDEFINED_FUNCTION');
 
 // mozna oba zrobić z poprzedniego
 
