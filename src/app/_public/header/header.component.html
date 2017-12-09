@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light center">
+<nav class="navbar navbar-light center header">
   <div class="container">
     <a class="navbar-brand" href="#">Hotel-Jajusz.pl</a>
     <div class='navbar-nav'>
@@ -12,13 +12,7 @@
             Witaj, {{data.nazwisko}} {{data.imie}}
           </a>
           <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="dropdown2">
-            <a routerLink='panel/profil'>Moje konto</a><br>
-            <a routerLink='panel/wiadomosci'>Wiadomości</a><br>
-            <a routerLink='panel/ustawienia'>Ustawienia profilu</a><br>
-            <a routerLink='panel/mojeog'>Moje ogłoszenia</a><br>
-            <a routerLink='panel/obserwowane'>Obserwowane</a><br>
-            <a routerLink='panel/stworz'>Stwórz ogłoszenie</a><br>
-            <a routerLink='panel/archiwum'>Archiwum</a><br>
+            <a routerLink='user'>Moje konto</a><br>
             <a href="#" (click)='logout()'><b>Wyloguj</b></a>
           </div>
         </div>
