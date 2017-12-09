@@ -17,3 +17,4 @@ else if($request[0] == 'delete') {
   if(checkTokenAccess('pracownik'))
     include_once($path.'delete.php');
 }
+else error_message('UNDEFINED_FUNCTION');

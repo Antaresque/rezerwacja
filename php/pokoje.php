@@ -20,3 +20,4 @@ else if($request[0] == 'change') {        // TODO: modyfikacja (╯°□°）╯
   if(checkTokenAccess('szef'))            // modyfikacja pokojów tylko dla szefa
     include_once($path.'change.php');
 }
+else error_message('UNDEFINED_FUNCTION');

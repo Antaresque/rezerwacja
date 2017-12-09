@@ -2,6 +2,7 @@
 require_once('_host.php');
 require_once('_hash.php');
 require_once('_JWT.php');
+require_once('_messages.php');
 use \Firebase\JWT\JWT;
 
 //check for localhost (OPTIONS pre-flight response)
@@ -23,7 +24,7 @@ if(file_exists($filename)) {
   include_once($filename); // plik z funkcjami
 }
 else {
-  $result = array('message' => 'Nie znaleziono tablicy'); // jak nie znajdzie pliku php to error
+  error_message('FILE_NOT_FOUND'); // jak nie znajdzie pliku php to error
 }
 
 echo json_encode($result); //wysyła $result
