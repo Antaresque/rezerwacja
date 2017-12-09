@@ -18,6 +18,10 @@ import { SzefModule } from './szef/szef.module';
 import { UserModule } from './user/user.module';
 import { PokojModule } from './pokoj/pokoj.module';
 
+// calendar module
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'angular-calendar';
+
 // routing module
 import { RoutingModule } from './routing.module';
 
@@ -36,7 +40,9 @@ import { RoutingModule } from './routing.module';
     UserModule,
     PublicModule,
     RoutingModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule,
+    CalendarModule.forRoot()
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pl'}
@@ -44,4 +50,3 @@ import { RoutingModule } from './routing.module';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
- 

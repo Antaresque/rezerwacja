@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('../node_modules/angular-calendar/css/angular-calendar.css');
+
 @font-face {
   font-family: 'ADAMCG';
   src: url('/assets/ADAM.CG PRO.otf') format("opentype");
