@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     if(this.logged) this.user.data_user().subscribe(
-      res => this.data = JSON.parse(res['_body'])
+      res => this.data = res
     )
   }
 

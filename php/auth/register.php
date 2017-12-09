@@ -9,11 +9,11 @@ $checkemail = DB::queryFirstRow("SELECT * FROM klienci WHERE email = %s", $email
 $register_possible = true; // czy można się zarejestrować
 
 if(!is_null($checklogin)) { // jeżeli login znajduje się w bazie to nie można
-  $result = error_message($result, 'LOGIN_TAKEN');
+  error_message('LOGIN_TAKEN');
   $register_possible = false;
 }
 if(!is_null($checkemail)) { // tak samo dla e-maila
-  $result = error_message($result, 'EMAIL_TAKEN');
+  error_message('EMAIL_TAKEN');
   $register_possible = false;
 }
 

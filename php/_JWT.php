@@ -3,6 +3,7 @@ require_once '_jwt/BeforeValidException.php';
 require_once '_jwt/ExpiredException.php';
 require_once '_jwt/SignatureInvalidException.php';
 require_once '_jwt/JWT.php';
+use \Firebase\JWT\JWT;
 
 $jwt_secret = json_decode(file_get_contents('secret.json'), true)['secret'];
 
@@ -37,6 +38,8 @@ function getBearerToken() {
 }
 
 function checkTokenAccess($funkcja){
+  global $jwt_secret;
+
   $jwt = getBearerToken();
   if(isset($jwt)){
     try{
@@ -49,6 +52,28 @@ function checkTokenAccess($funkcja){
       echo $e->getMessage(); return false;
     }
     return ($payload->funkcja == $funkcja);
+  }
+  else {
+    http_response_code(401);
+    return false;
+  }
+}
+
+function checkTokenID($id){
+  global $jwt_secret;
+
+  $jwt = getBearerToken();
+  if(isset($jwt)){
+    try{
+      $payload = JWT::decode($jwt, $jwt_secret, array('HS256'));
+    }
+    catch(SignatureInvalidException $e){
+      http_response_code(401); return false;
+    }
+    catch(UnexpectedValueException $e){
+      echo $e->getMessage(); return false;
+    }
+    return ($payload->id == $id);
   }
   else {
     http_response_code(401);

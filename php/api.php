@@ -7,7 +7,10 @@ use \Firebase\JWT\JWT;
 
 //check for localhost (OPTIONS pre-flight response)
 $method = $_SERVER['REQUEST_METHOD'];
-if($method == 'OPTIONS') http_response_code(200);
+if($method == 'OPTIONS'){
+  http_response_code(200);
+  exit();
+}
 
 // podziel link na części
 $request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
@@ -24,7 +27,7 @@ if(file_exists($filename)) {
   include_once($filename); // plik z funkcjami
 }
 else {
-  $result = error_message($result, 'FILE_NOT_FOUND'); // jak nie znajdzie pliku php to error
+  error_message('FILE_NOT_FOUND'); // jak nie znajdzie pliku php to error
 }
 
 echo json_encode($result); //wysyła $result

@@ -9,6 +9,10 @@ if(!empty($request)) {                   // nie ma pustego zapytania wiec musi s
   else if($request[0] == 'register'){     // TODO: register (zaszyfrowac haslo)
     include_once($path.'register.php');
   }
+  else if($request[0] == 'mydata'){
+    if(checkTokenAccess('klient'))
+      include_once($path.'mydata.php');
+  }
   else $result = error_message($result, 'UNDEFINED_FUNCTION');
 }
 else $result = error_message($result, 'UNDEFINED_FUNCTION');

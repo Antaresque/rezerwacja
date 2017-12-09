@@ -88,4 +88,11 @@ export class UserService {
     return this.http.post(this.api_link + 'auth/register', user, {headers: this.headers}).map(res => res.json());
   }
 
+  /** Get data about currently logged user thro POST request from database.
+   *
+   */
+  data_user(){
+    let payload = this.getPayload();
+    return this.http.post(this.api_link + 'auth/mydata', {id: payload.id}, {headers: this.headers}).map(res => res.json()));
+  }
 }
