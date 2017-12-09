@@ -1,11 +1,9 @@
+import { SharedModule } from './../_shared/shared.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SzefComponent } from './szef.component';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [SharedModule],
   declarations: [SzefComponent]
 })
 export class SzefModule { }

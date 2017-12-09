@@ -4,5 +4,5 @@ if(DB::count() > 0) {
   $result = $data;
 }
 else{
-  error_message('NO_RESULTS');
+  $result = error_message($result, 'NO_RESULTS');
 }

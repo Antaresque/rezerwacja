@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 export class PracownicyService {
 
   headers: Headers;
-  api_link = 'http://localhost/angular-rezerwacja/php/api.php';
+  api_link = 'http://localhost/angular-rezerwacja/php/api.php/';
 
   constructor(private http: Http) {
     this.headers = new Headers();

@@ -16,4 +16,4 @@ else if($request[0] == 'delete') {        // TODO: usuwanie
   if(checkTokenAccess('szef'))
     include_once($path.'delete.php');
 }
-else error_message('UNDEFINED_FUNCTION');
+else $result = error_message($result, 'UNDEFINED_FUNCTION');

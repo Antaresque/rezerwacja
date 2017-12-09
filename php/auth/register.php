@@ -1,6 +1,6 @@
 <?php
-$login = $array['login'];
-$email = $array['email'];
+$login = $input['login'];
+$email = $input['email'];
 
 $checklogin = DB::queryFirstRow("SELECT * FROM klienci WHERE login = %s", $login);
 $checkemail = DB::queryFirstRow("SELECT * FROM klienci WHERE email = %s", $email);
@@ -9,25 +9,25 @@ $checkemail = DB::queryFirstRow("SELECT * FROM klienci WHERE email = %s", $email
 $register_possible = true; // czy można się zarejestrować
 
 if(!is_null($checklogin)) { // jeżeli login znajduje się w bazie to nie można
-  error_message('LOGIN_TAKEN');
+  $result = error_message($result, 'LOGIN_TAKEN');
   $register_possible = false;
 }
 if(!is_null($checkemail)) { // tak samo dla e-maila
-  error_message('EMAIL_TAKEN');
+  $result = error_message($result, 'EMAIL_TAKEN');
   $register_possible = false;
 }
 
 if($register_possible) {
-  $haslo = generate_hash($array['pass']); // TODO: rejestracja dla klientów
-  $imie = $array['imie'];
-  $nazwisko = $array['nazwisko'];
-  $nr_tel = $array['telefon'];
+  $haslo = generate_hash($input['pass']);
+  $imie = $input['imie'];
+  $nazwisko = $input['nazwisko'];
+  $nr_tel = $input['telefon'];
 
-  DB::insert('uzytkownicy', array(
+  DB::insert('klienci', array(
     'imie' => $imie,
     'nazwisko' => $nazwisko,
-    'adres' => $adres,
     'nr_tel' => $nr_tel,
+    'email' => $email,
     'login' => $login,
     'haslo' => $haslo));
   $result = array('result' => true);

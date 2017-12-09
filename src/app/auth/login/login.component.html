@@ -9,7 +9,10 @@
   <button [disabled]="loading" class="btn btn-primary">Logowanie</button>
   <img *ngIf="loading" src="assets/loading.gif">
 </form>
-<div class="alert alert-danger mt-2" *ngIf="wrongPassword">
-  Nieprawidłowy login lub hasło :(
+<div class="alert alert-danger mt-2" *ngIf="error">
+  {{this.error}}
+</div>
+<div class="alert alert-secondary mt-2" *ngIf="register">
+  Rejestracja powiodła się. Możesz się teraz zalogować.
 </div>
 

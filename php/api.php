@@ -24,7 +24,7 @@ if(file_exists($filename)) {
   include_once($filename); // plik z funkcjami
 }
 else {
-  error_message('FILE_NOT_FOUND'); // jak nie znajdzie pliku php to error
+  $result = error_message($result, 'FILE_NOT_FOUND'); // jak nie znajdzie pliku php to error
 }
 
 echo json_encode($result); //wysyła $result

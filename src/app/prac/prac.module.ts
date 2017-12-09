@@ -1,11 +1,9 @@
+import { SharedModule } from './../_shared/shared.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { PracComponent } from './prac.component';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [SharedModule],
   declarations: [PracComponent]
 })
 export class PracModule { }

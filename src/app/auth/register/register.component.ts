@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
   constructor(private fb: FormBuilder, private user: UserService, private router: Router) { }
 
   loading = false;
+  error;
   model: any = {};
 
   ngOnInit() {
@@ -39,18 +40,29 @@ export class RegisterComponent implements OnInit {
   }
 
   registerEvent() {
-    if (this.form.valid) {
+    if(this.form.valid) {
       const formValue = Object.assign({}, this.form.value);
-      formValue.password = formValue.passGroup.password;
+      formValue.pass = formValue.passGroup.pass;
       delete formValue.passGroup;
       this.loading = true;
-      this.user.insert(this.form.value).subscribe(
-          data => {
-            this.loading = false;
-            this.form.reset();
-            this.router.navigate(['/']);
+      console.log(formValue);
+      this.user.register(formValue).subscribe(
+          res => {
+            if('message' in res) {
+              this.error = res['message'];
+              this.form.reset();
+              this.loading = false;
+            }
+            else {
+              this.model = {};
+              this.error = null;
+              this.loading = false;
+              this.form.reset();
+              this.router.navigate(['/auth/login'], {queryParams: {'redirect': false, 'register': 'true'} });
+            }
           },
           error => {
+            console.log(error);
             this.loading = false;
             this.form.reset();
           });

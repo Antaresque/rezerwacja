@@ -15,11 +15,14 @@ export class LoginComponent {
   redirect = true;
   loading = false;
   model: any = {};
+  error: any;
+  register: boolean;
 
   constructor(public user: UserService, private router: Router, private route: ActivatedRoute, private location: Location) {
     this.route.queryParams.subscribe(
       params => {
         this.redirect = params['redirect'] || true;
+        this.register = params['register'] || false;
       })
   }
 
@@ -29,23 +32,31 @@ export class LoginComponent {
   loginEvent() {
     this.loading = true;
     this.user.login(this.model).subscribe(
-      data => {
-        console.log(data);
-        this.isLoggedIn = JSON.parse(data['_body'])['login_result'];
-       // czy uzytkownik podal dobre dane (bool)
-        this.model = {};
-        this.loading = false;
+      res => {
+        if('message' in res) {
+          this.error = res['message'];
+          this.isLoggedIn = false;
+          this.model = {};
+          this.loading = false;
+          this.register = false;
+        }
+        else  {
+          this.isLoggedIn = res['result'];
+          this.model = {};
+          this.error = null;
+          this.loading = false;
+          this.register = false;
 
-        if(this.isLoggedIn) {
-          this.user.setJWT(JSON.parse(data['_body'])['jwt']);
+          this.user.setJWT(res['jwt']);
           if(this.redirect) this.location.back();
           else this.router.navigate(['/']);
-        } else this.wrongPassword = true;
+        }
       },
       err => {
         this.model = {};
         console.log(err['_body']);
         this.loading = false;
+        this.register = false;
       });
   }
 }
