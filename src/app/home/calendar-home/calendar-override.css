@@ -1,10 +1,9 @@
-.cal-day-cell.cal-today:not(:hover){
+.cal-day-cell.cal-today:not(:hover):not(.cal-day-selected){
   background-color: white !important;
 }
 .cal-day-cell.cal-today .cal-day-number{
   font-size: 1.2em !important;
 }
-
 
 .cal-day-selected{
   background: rgba(154, 205, 50, 0.5) !important;
