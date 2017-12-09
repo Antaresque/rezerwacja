@@ -1,4 +1,6 @@
+<div class="container content-align-center">
 <div class="row text-center">
+  <div class="col-md">
   <div class="btn-group">
     <div
       class="btn btn-primary"
@@ -24,17 +26,25 @@
       Next
     </div>
   </div>
-  <div class="col-md-4">
+  </div>
+  <div class="col-md">
     <h3>{{ viewDate | date:'LLLL y' | capitalize}}</h3>
   </div>
 </div>
-
+</div>
+<div class="container-fluid">
+  <div class="row">
+  <div class="col-sm-3 text-right"><br><br><br><br><br><br><br><br><br><br><br><br><br>Szczauka po lewej</div>
+  <div class="col-lg">
 <mwl-calendar-month-view
   [viewDate]="viewDate"
   [events]="events"
   (beforeViewRender)="beforeMonthViewRender($event)"
   (dayClicked)="dayClicked($event.day)">
 </mwl-calendar-month-view>
-
+</div>
+<div class="col-sm-3"><br><br><br><br><br><br><br><br><br><br><br><br><br>Szczauka po prawej</div>
+</div>
 <div>{{clickedDate}}</div>
 
+</div>
