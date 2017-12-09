@@ -1,3 +1,93 @@
-<p>
-  user works!
-</p>
+<div class="container">
+  <div class="row text-center info rounded">
+    <div class="col-lg">
+      <h3>Jakieś super przykładowe informacje użytkownika</h3>
+      <br><h4>Login: Janusz69</h4>
+      <br>Imię: Janusz
+      <br>Nazwisko: Nosacz
+      <br>Numer telefonu: 656 565 656
+      <br>Email: janusz@nosacz.pl
+    </div>
+  </div>
+  <div class="row align-content-middle change">
+    <div class="col-3"></div>
+      <div class="col-6">
+        <div id="accordion" role="tablist">
+          <div class="card">
+            <div class="card-header" role="tab" id="headingOne">
+              <h5 class="mb-0">
+                <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Zmień dane użytkownika
+                </a>
+              </h5>
+            </div>
+              <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                  <form name="form" (ngSubmit)="f.form.valid && changeData()" #f = "ngForm" novalidate>
+                    <div class="form-group">
+                      <label for="imie">Imię/Imiona</label>
+                      <input type="password" class="form-control" name="imie" [(ngModel)]="model.imie"  #imie="ngModel">
+                    </div>
+                      <div class="form-group">
+                        <label for="nazwisko">Nazwisko</label>
+                        <input type="password" class="form-control" name="nazwisko" [(ngModel)]="model.nazwisko"  #nazwisko="ngModel">
+                      </div>
+                        <div class="form-group">
+                          <label for="telefon">Telefon</label>
+                          <input type="password" class="form-control" name="telefon" [(ngModel)]="model.telefon"  #telefon="ngModel">
+                      </div>
+                      <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel">
+                      </div>
+                      <br>
+                      <button [disabled]="loading" class="btn btn-primary">Zmień dane</button>
+                      <img *ngIf="loading" src="assets/loading.gif">
+                  </form>
+                </div>
+              </div>
+          </div>
+              <div class="card">
+                <div class="card-header" role="tab" id="headingTwo">
+                  <h5 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Zmień hasło
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div class="card-body">
+                    <form name="form" (ngSubmit)="f2.form.valid && changePassword()" #f2 = "ngForm" novalidate>
+                      <div class="form-group">
+                        <label for="ulica">Hasło</label>
+                        <input type="text" class="form-control" name="ulica" [(ngModel)]="model.ulica" #ulica="ngModel">
+                      </div>
+                      <div class="form-group">
+                        <label for="miasto">Powtórz hasło</label>
+                        <input type="password" class="form-control" name="miasto" [(ngModel)]="model.miasto"  #pass="ngModel">
+                      </div>
+                      <button [disabled]="loading" class="btn btn-primary">Zmień hasło</button>
+                      <img *ngIf="loading" src="assets/loading.gif">
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" role="tab" id="headingFive">
+                  <h5 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                      Usuń konto
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive" data-parent="#accordion">
+                  <div class="card-body">
+                    <button class="btn btn-danger" (click)='deleteAcc()'>Usuń konto (!)</button>
+                    zrobić funkcje z potwierdzeniem do tego😂
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+  </div>
+</div>
