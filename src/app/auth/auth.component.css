@@ -1,0 +1,34 @@
+.card-header{
+  padding: 0;
+}
+.tab-row{
+  padding: 0;
+  margin: 0;
+}
+
+.tab-link{
+  text-transform: uppercase;
+  font-family: "ADAMCG";
+  padding: 15px;
+}
+a{
+  color:  green;
+  text-decoration: none;
+}
+
+.tab-link:hover {
+  background-color: #EEE;
+}
+
+.active{
+  background-color: #EEE;
+  pointer-events: none;
+  cursor: default;
+}
+
+.noselect{
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;
+}

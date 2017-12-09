@@ -1,0 +1,14 @@
+.dropdown-menu-right{
+  left: auto;
+  right: 0;
+}
+.logo, .navbar-brand{
+  font-family: 'ADAMCG';
+}
+.dropdown-menu{
+  font-family: 'Palanquin-Light';
+}
+.img-circle {
+  border-radius: 50%;
+}
+
