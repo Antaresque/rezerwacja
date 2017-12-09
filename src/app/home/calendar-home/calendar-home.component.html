@@ -1,37 +1,17 @@
 <div class="container content-align-center">
 <div class="row text-center">
-  <div class="col-md">
-  <div class="btn-group">
-    <div
-      class="btn btn-primary"
-      mwlCalendarPreviousView
-      [view]="view"
-      [(viewDate)]="viewDate">
-      Previous
-    </div>
-    <div
-      class="btn btn-outline-secondary"
-      mwlCalendarToday
-      [(viewDate)]="viewDate">
-      Today
-    </div>
-    <div
-      class="btn btn-primary"
-      mwlCalendarNextView
-      [view]="view"
-      [(viewDate)]="viewDate">
-      Next
-    </div>
-  </div>
-  </div>
-  <div class="col-md">
+  <div class="col-6 offset-6 mb-2">
     <h3>{{ viewDate | date:'LLLL y' | capitalize}}</h3>
   </div>
 </div>
 
 <div class='row'>
-  <div class='col-1 align-items-middle'>
-    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+  <div
+    class='arrow col-1 d-flex align-items-center'
+    mwlCalendarPreviousView
+    [view]="view"
+    [(viewDate)]="viewDate">
+    <i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i>
   </div>
   <div class='col'>
     <mwl-calendar-month-view
@@ -41,8 +21,12 @@
       (dayClicked)="dayClicked($event.day)">
     </mwl-calendar-month-view>
   </div>
-  <div class='col-1 align-items-middle'>
-      <i class="fa fa-arrow-right" aria-hidden="true"></i>
+  <div
+    class='arrow col-1 d-flex align-items-center'
+    mwlCalendarNextView
+    [view]="view"
+    [(viewDate)]="viewDate">
+    <i class="fa fa-arrow-right fa-4x" aria-hidden="true"></i>
   </div>
 </div>
 

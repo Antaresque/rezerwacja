@@ -1,0 +1,6 @@
+.arrow:not(:hover){
+  opacity: 0.4;
+}
+.arrow:hover{
+  background: rgba(220,220,220,0.1);
+}
