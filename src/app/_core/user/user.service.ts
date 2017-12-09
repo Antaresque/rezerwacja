@@ -93,6 +93,6 @@ export class UserService {
    */
   data_user(){
     let payload = this.getPayload();
-    return this.http.post(this.api_link + 'auth/mydata', {id: payload.id}, {headers: this.headers}).map(res => res.json()));
+    return this.http.post(this.api_link + 'auth/mydata', {id: payload.id}, {headers: this.headers}).map(res => res.json());
   }
 }
