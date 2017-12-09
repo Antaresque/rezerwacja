@@ -6,7 +6,7 @@ import { AuthComponent } from './auth/auth.component';
   import { RegisterComponent } from './auth/register/register.component';
   import { LoginComponent } from './auth/login/login.component';
 
-import { PagenotfoundComponent } from './_public/pagenotfound/pagenotfound.component';
+import { PageNotFoundComponent } from './_public/pagenotfound/pagenotfound.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,7 +15,7 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent }
   ]},
-  { path: '**', component: PagenotfoundComponent } // 404
+  { path: '**', component: PageNotFoundComponent } // 404
 ];
 
 @NgModule({

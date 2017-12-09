@@ -1,3 +1,4 @@
+import { UserService } from './user/user.service';
 import { PokojeService } from './pokoje/pokoje.service';
 import { PracownicyService } from './pracownicy/pracownicy.service';
 import {
@@ -25,7 +26,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
         ngModule: CoreModule,
-        providers: [PracownicyService, PokojeService, HttpModule]
+        providers: [PracownicyService, PokojeService, HttpModule, UserService]
     };
   }
 

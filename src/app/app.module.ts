@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 // modules
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './_core/_core.module';
-import { PublicModule } from './_public/_public.module';
+import { PublicModule } from './_public/public.module';
 import { HomeModule } from './home/home.module';
 import { PracModule } from './prac/prac.module';
 import { SzefModule } from './szef/szef.module';
@@ -44,3 +44,4 @@ import { RoutingModule } from './routing.module';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+ 

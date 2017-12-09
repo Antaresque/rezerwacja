@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,11 +6,16 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './pagenotfound.component.html',
   styleUrls: ['./pagenotfound.component.css']
 })
-export class PagenotfoundComponent implements OnInit {
+export class PageNotFoundComponent implements OnInit {
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit() {
   }
 
+  back(){
+    this.location.back();
+  }
+
 }
+ 
