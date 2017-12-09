@@ -1,6 +1,15 @@
-.cal-day-selected, .cal-day-selected:hover{
-  background-color: yellowgreen !important;
+.cal-day-selected{
+  background: rgba(154, 205, 50, 0.5) !important;
 }
-.cal-today{
-  background-color: yellow !important;
+.cal-day-selected:hover{
+  background: rgba(154, 205, 50, 0.3) !important;
+}
+.cal-day-selected .cal-day-number{
+  font-weight: bold !important;
+}
+.cal-day-cell.cal-today{
+  background-color: white !important;
+}
+.cal-day-cell.cal-today .cal-day-number{
+  font-size: 1.2em !important;
 }
