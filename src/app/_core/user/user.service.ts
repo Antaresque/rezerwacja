@@ -73,7 +73,10 @@ export class UserService {
    * @param {JSON} user JSON array with login and password.
    */
   login(user) {
-    return this.http.post(this.api_link + 'auth/login', user, {headers: this.headers}).map(res => res.json());
+    return this.http.post(this.api_link + 'auth/login', user, {headers: this.headers}).map(
+      res =>
+        //console.log(res); //<- do testów
+        res.json());
   }
 
   /**
