@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('../node_modules/angular-calendar/css/angular-calendar.css');
+@import url('./app/home/calendar-home/calendar-override.css');
 
 @font-face {
   font-family: 'ADAMCG';
@@ -25,3 +26,4 @@
   font-family: 'Palanquin-Regular';
   src: url('/assets/palanquin-regular.ttf') format("truetype");
 }
+
