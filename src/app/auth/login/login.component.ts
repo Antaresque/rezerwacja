@@ -12,10 +12,10 @@ export class LoginComponent {
 
   isLoggedIn: boolean;
   wrongPassword = false;
-  redirect = true;
   loading = false;
   model: any = {};
   error: any;
+  redirect: boolean;
   register: boolean;
 
   constructor(public user: UserService, private router: Router, private route: ActivatedRoute, private location: Location) {
@@ -44,12 +44,13 @@ export class LoginComponent {
           this.isLoggedIn = res['result'];
           this.model = {};
           this.error = null;
-          this.loading = false;
           this.register = false;
+          this.loading = false;
 
           this.user.setJWT(res['jwt']);
-          if(this.redirect) this.location.back();
-          else this.router.navigate(['/']);
+          this.redirect === true
+             ? this.location.back()
+             : this.router.navigate(['/']);
         }
       },
       err => {
