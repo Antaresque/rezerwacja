@@ -3,7 +3,7 @@
   <div class="card" id="login-tabs">
     <div class="card-header text-center">
         <div class="row tab-row">
-          <a (click)='move({redirect:false})' class="col-sm tab-link noselect" [class.active] = "active == 'login'">Logowanie</a>
+          <span (click)='move({redirect:false})' class="col-sm tab-link noselect" [class.active] = "active == 'login'">Logowanie</span>
           <a routerLink='register' class="col-sm tab-link noselect" [class.active] = "active == 'register'">Rejestracja</a>
         </div>
     </div>

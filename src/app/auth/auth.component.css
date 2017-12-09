@@ -10,10 +10,9 @@
   text-transform: uppercase;
   font-family: "ADAMCG";
   padding: 15px;
-}
-a{
   color:  green;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .tab-link:hover {
