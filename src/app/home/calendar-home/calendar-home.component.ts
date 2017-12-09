@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { CalendarEvent, CalendarMonthViewDay } from 'angular-calendar';
+import { DayViewHour } from 'calendar-utils';
 
 @Component({
   selector: 'app-calendar-home',
@@ -8,6 +9,7 @@ import { CalendarEvent, CalendarMonthViewDay } from 'angular-calendar';
 })
 export class CalendarHomeComponent implements OnInit {
 
+  view: string = "month";
   viewDate: Date = new Date();
   events: CalendarEvent[] = [];
   clickedDate: Date;
