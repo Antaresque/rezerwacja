@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'ADAMCG';
+  src: url('/assets/ADAM.CG PRO.otf') format("opentype");
+}
+@font-face {
+  font-family: 'Anson';
+  src: url('/assets/Anson-Regular.otf') format("opentype");
+}
+@font-face {
+  font-family: 'Palanquin-Light';
+  src: url('/assets/palanquin-light.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'Palanquin-SemiBold';
+  src: url('/assets/palanquin-semibold.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'Palanquin-Bold';
+  src: url('/assets/palanquin-bold.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'Palanquin-Regular';
+  src: url('/assets/palanquin-regular.ttf') format("truetype");
+}
