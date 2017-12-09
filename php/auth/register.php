@@ -32,3 +32,4 @@ if($register_possible) {
     'haslo' => $haslo));
   $result = array('result' => true);
 }
+// TODO: zrobic weryfikacje na mail

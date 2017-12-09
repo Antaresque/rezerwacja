@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 export class PracownicyService {
 
   headers: Headers;
-  api_link = 'http://localhost/angular-rezerwacja/php/api.php/';
+  API_LINK = 'http://localhost/angular-rezerwacja/php/api.php/';
 
   constructor(private http: Http) {
     this.headers = new Headers();
@@ -17,11 +17,6 @@ export class PracownicyService {
    * gets data idk
    */
   get() {
-    return this.http.post(this.api_link + 'pracownicy', {headers: this.headers}).map(res => res.json());
+    return this.http.post(this.API_LINK + 'pracownicy', {headers: this.headers}).map(res => res.json());
   }
-
-  wolnepokoje(date){
-    return this.http.post(this.api_link + 'pracownicy/wolnepokoje', {date: date}, {headers: this.headers});
-  }
-
 }

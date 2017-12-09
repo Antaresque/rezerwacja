@@ -10,7 +10,8 @@
     class='arrow col-1 d-flex align-items-center'
     mwlCalendarPreviousView
     [view]="view"
-    [(viewDate)]="viewDate">
+    [(viewDate)]="viewDate"
+    (onClick)='clearSelect()'>
     <i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i>
   </div>
   <div class='col'>
@@ -18,7 +19,7 @@
       class='noselect'
       [viewDate]="viewDate"
       [events]="events"
-      (beforeViewRender)="beforeMonthViewRender($event)"
+      (beforeViewRender)="beforeViewRender($event)"
       (dayClicked)="dayClicked($event.day)">
     </mwl-calendar-month-view>
   </div>
@@ -26,7 +27,8 @@
     class='arrow col-1 d-flex align-items-center'
     mwlCalendarNextView
     [view]="view"
-    [(viewDate)]="viewDate">
+    [(viewDate)]="viewDate"
+    (onClick)='clearSelect()'>
     <i class="fa fa-arrow-right fa-4x" aria-hidden="true"></i>
   </div>
 </div>

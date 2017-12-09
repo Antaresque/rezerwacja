@@ -1,3 +1,4 @@
+import { PokojeService } from './../../_core/pokoje/pokoje.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,11 +8,34 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PokojeListaComponent implements OnInit {
 
-  @Input() date: Date;
+  date: Date = new Date();
+  dane: any;
+  error: string = null;
 
-  constructor() { }
+  constructor(private pokoje: PokojeService) {
+    this.pokoje.date.subscribe(
+      value => {
+        this.date = value;
+        this.checkFreeRooms();
+    })
+   }
 
   ngOnInit() {
+    this.checkFreeRooms();
   }
 
+  checkFreeRooms(){
+    this.pokoje.wolnepokoje(this.date).subscribe(
+      res => {
+        if('message' in res){
+          this.error = res['message'];
+        }
+        else{
+          this.error = null;
+          this.dane = res;
+        }
+        console.log(res);
+      }
+    );
+  }
 }

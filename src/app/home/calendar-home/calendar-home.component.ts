@@ -1,3 +1,4 @@
+import { PokojeService } from './../../_core/pokoje/pokoje.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { CalendarEvent, CalendarMonthViewDay } from 'angular-calendar';
 import { DayViewHour } from 'calendar-utils';
@@ -12,11 +13,11 @@ export class CalendarHomeComponent implements OnInit {
   view: string = "month";
   viewDate: Date = new Date();
   events: CalendarEvent[] = [];
-  clickedDate: Date;
   selectedMonthViewDay: CalendarMonthViewDay;
+  selectedDate: Date = new Date();;
   @Output() dateChange: EventEmitter<Date> = new EventEmitter<Date>();
 
-  constructor() { }
+  constructor(private pokoje: PokojeService) { }
 
   ngOnInit() {
   }
@@ -27,19 +28,22 @@ export class CalendarHomeComponent implements OnInit {
     }
     day.cssClass = 'cal-day-selected';
     this.selectedMonthViewDay = day;
-
-    this.dateChange.emit(day.date);
+    this.selectedDate = day.date;
+    this.pokoje.emitDate(this.selectedDate);
   }
 
-  beforeMonthViewRender({ body }: { body: CalendarMonthViewDay[] }): void {
+  beforeViewRender({ body }: { body: CalendarMonthViewDay[] }): void {
     body.forEach(day => {
-      if (
-        this.selectedMonthViewDay &&
-        day.date.getTime() === this.selectedMonthViewDay.date.getTime()
-      ) {
-        day.cssClass = 'cal-day-selected';
-        this.selectedMonthViewDay = day;
+      if(this.selectedMonthViewDay && day.date.getTime() === this.selectedMonthViewDay.date.getTime()
+        || this.selectedDate.toDateString() === day.date.toDateString()) {
+          day.cssClass = 'cal-day-selected';
+          this.selectedMonthViewDay = day;
       }
     });
+  }
+
+  clearSelect(){
+    delete this.selectedMonthViewDay.cssClass;
+    delete this.selectedMonthViewDay;
   }
 }

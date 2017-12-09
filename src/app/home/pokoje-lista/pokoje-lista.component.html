@@ -1,1 +1,11 @@
-{{ date }}
+<div *ngIf='error; then noResultsTemplate; else resultsTemplate'></div>
+
+<ng-template #resultsTemplate>
+  <div *ngFor='let i of dane'>
+    {{ i.id_pokoju }}
+  </div>
+</ng-template>
+
+<ng-template #noResultsTemplate>
+  <span>{{ error }}</span>
+</ng-template>

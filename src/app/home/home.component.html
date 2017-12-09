@@ -1,12 +1,12 @@
 <div class="row text-center rounded calendar">
   <div class="col-lg mt-3">
     <div class='mb-5'><h2>Wybierz dzień rezerwacji</h2></div>
-    <app-calendar-home (dateChange)='onDateChange($event)'></app-calendar-home>
+    <app-calendar-home></app-calendar-home>
   </div>
 </div>
 
 <div class="row text-center lista">
   <div class='col'>
-    <app-pokoje-lista [date]='date'></app-pokoje-lista>
+    <app-pokoje-lista></app-pokoje-lista>
   </div>
 </div>
