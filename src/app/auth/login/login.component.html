@@ -1,3 +1,15 @@
-<p>
-  login works!
-</p>
+<form name="form" (ngSubmit)="f.form.valid && loginEvent()" #f = "ngForm" novalidate>
+  <div class="form-group">
+    <label for="login">Login</label>
+    <input type="text" class="form-control" name="login" [(ngModel)]="model.login" #login="ngModel" placeholder="Nazwa użytkownika" required>
+  </div>
+  <div class="form-group">
+    <input type="password" placeholder="Hasło" class="form-control" [(ngModel)]="model.pass"  #pass="ngModel" name="pass" required>
+  </div>
+  <button [disabled]="loading" class="btn btn-primary">Logowanie</button>
+  <img *ngIf="loading" src="assets/loading.gif">
+</form>
+<div class="alert alert-danger mt-2" *ngIf="wrongPassword">
+  Nieprawidłowy login lub hasło :(
+</div>
+
