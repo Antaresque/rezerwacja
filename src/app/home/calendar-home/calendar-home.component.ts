@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { CalendarEvent, CalendarMonthViewDay } from 'angular-calendar';
 import { DayViewHour } from 'calendar-utils';
 
@@ -14,6 +14,7 @@ export class CalendarHomeComponent implements OnInit {
   events: CalendarEvent[] = [];
   clickedDate: Date;
   selectedMonthViewDay: CalendarMonthViewDay;
+  @Output() dateChange: EventEmitter<Date> = new EventEmitter<Date>();
 
   constructor() { }
 
@@ -21,12 +22,13 @@ export class CalendarHomeComponent implements OnInit {
   }
 
   dayClicked(day: CalendarMonthViewDay): void {
-    this.clickedDate = day.date;
     if(this.selectedMonthViewDay) {
       delete this.selectedMonthViewDay.cssClass;
     }
     day.cssClass = 'cal-day-selected';
     this.selectedMonthViewDay = day;
+
+    this.dateChange.emit(day.date);
   }
 
   beforeMonthViewRender({ body }: { body: CalendarMonthViewDay[] }): void {

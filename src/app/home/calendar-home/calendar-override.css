@@ -14,3 +14,6 @@
 .cal-day-selected .cal-day-number{
   font-weight: bold !important;
 }
+.cal-cell{
+  font-family: 'Palanquin-Light';
+}

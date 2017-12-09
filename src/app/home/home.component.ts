@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   dane: any = [];
+  date: Date = new Date();
   error: string = null;
 
   constructor(private pokoje: PokojeService) { }
@@ -21,5 +22,9 @@ export class HomeComponent implements OnInit {
         }
         else this.dane = res;
       });
+  }
+
+  onDateChange(date: Date){
+    this.date = date;
   }
 }
