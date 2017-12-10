@@ -1,4 +1,4 @@
-<div *ngIf='error; then noResultsTemplate'></div>
+<div *ngIf='error; else resultsTemplate'></div>
 
 <ng-template #resultsTemplate>
   <div *ngFor='let i of dane'>

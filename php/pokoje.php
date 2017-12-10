@@ -23,4 +23,7 @@ else if($request[0] == 'change') {        // TODO: modyfikacja (╯°□°）╯
 else if($request[0] == 'wolnepokoje') {
   include_once($path.'wolnepokoje.php');
 }
+else if($request[0] == 'wolnepokojepage') {
+  include_once($path.'wolnepokojepage.php');
+}
 else error_message('UNDEFINED_FUNCTION');

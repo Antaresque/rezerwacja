@@ -8,3 +8,22 @@
 h2{
     font-family: 'Palanquin-Light';
   }
+  .text-right{
+    font-size: 16px;
+    font-family: 'Palanquin-Light';
+  }
+  .sort-link:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    background-color: #EEE;
+  }
+  .lista{
+    background-color: #EEE;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.pokoikheader{
+  margin-bottom: 10px;
+  padding: 10px;
+  font-family: 'Palanquin-Light';
+}

@@ -8,3 +8,5 @@ if(DB::affectedcount() > 0){
   $result = array('result' => true);
 }
 else error_message('RESERVATION_NOT_FOUND');
+
+// TODO: mail

@@ -26,4 +26,8 @@ export class PokojeService {
   wolnepokoje(date){
     return this.http.post(this.API_LINK + 'pokoje/wolnepokoje', {date: date}).map(res => res.json());
   }
+
+  wolnepokojepage(model){
+    return this.http.post(this.API_LINK + 'pokoje/wolnepokojepage', model).map(res => res.json());
+  }
 }

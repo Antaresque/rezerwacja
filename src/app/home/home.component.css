@@ -1,14 +1,9 @@
-.lista{
-    background-color: #EEE;
-    margin-bottom: 20px;
-    padding: 10px;
-}
 .calendar{
     margin-bottom:20px;
     padding:10px;
 }
-.pokoik{
-    margin-bottom: 10px;
-    padding: 10px;
-    font-family: 'Palanquin-Light';
+.lista{
+  background-color: #EEE;
+  margin-bottom: 20px;
+  padding: 10px;
 }
