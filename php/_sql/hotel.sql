@@ -66,7 +66,8 @@ CREATE TABLE `pracownicy` (
   `zatrudniony` date DEFAULT NULL,
   `pensja` varchar(20) COLLATE utf8_polish_ci DEFAULT NULL,
   `haslo` varchar(150) COLLATE utf8_polish_ci NOT NULL,
-  `login` varchar(50) COLLATE utf8_polish_ci NOT NULL
+  `login` varchar(50) COLLATE utf8_polish_ci NOT NULL,
+  `funkcja` varchar(50) COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
@@ -168,6 +169,13 @@ ALTER TABLE `rezerwacje`
   ADD CONSTRAINT `rez_pok` FOREIGN KEY (`id_pokoju`) REFERENCES `pokoje` (`id_pokoju`),
   ADD CONSTRAINT `rez_pr` FOREIGN KEY (`id_pracownika`) REFERENCES `pracownicy` (`id_pracownika`);
 
+--
+-- Widok do logowania
+--
+
+CREATE VIEW `rejestracja_view` 
+  AS SELECT login, email, 'klient' as `funkcja` FROM klienci 
+    UNION SELECT login, email, funkcja FROM pracownicy;
 
 COMMIT;
 
