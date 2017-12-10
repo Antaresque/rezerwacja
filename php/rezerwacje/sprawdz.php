@@ -27,7 +27,7 @@ else {
       $pocz = $data[$i]['pocz_rezerwacji'];
       $kon = $data[$i]['kon_rezerwacji'];
       $date_temp = $pocz.' - '.$kon;
-      $result['message'] += ' '.$date_temp.' ';
+      $result['message'] .= $date_temp.' ';
     }
   }
   else{
