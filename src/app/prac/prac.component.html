@@ -1,9 +1,59 @@
+<div class="text-center">
+  <h4>Rezerwacje oczekujące na zatwierdzenie:</h4>
+  <div class="container rounded">
+  <div class="kura">
+  <div class="row hed">
+    <div class="col">
+      <h4>Numer rezerwacji</h4>
+    </div>
+    <div class="col">
+      <h4>Numer pokoju</h4>
+    </div>
+    <div class="col">
+      <h4>Data złożenia rezerwacji</h4>
+    </div>
+    <div class="col">
+      <h4>Początek rezerwacji</h4>
+    </div>
+    <div class="col">
+      <h4>Koniec rezerwacji</h4>
+    </div>
+    <div class="col">
+        <h4>Zatwierdź</h4>
+    </div>
+    <div class="col">
+      <h4>Odrzuć</h4>
+    </div>
+</div>
 <div *ngIf='error; else resultsTemplate'></div>
 
 <ng-template #resultsTemplate>
-  <div *ngFor='let i of dane'>
-    {{ i.id_pokoju }}
+  <div class="row pokoik rounded text-center d-flex align-items-center" *ngFor='let i of dane'>
+    <div class="col info">
+      <h4>{{ i.id_rezerwacji }}</h4>
+    </div>
+    <div class="col info">
+      <h4>{{ i.id_pokoju }}</h4>
+    </div>
+    <div class="col info">
+      <h4>{{ i.data_rejestracji }}</h4>
+    </div>
+    <div class="col info">
+      <h4>{{ i.pocz_rezerwacji}}</h4>
+    </div>
+    <div class="col info">
+      <h4>{{ i.kon_rezerwacji }}</h4>
+    </div>
+    <div class="col info">
+      <button class="btn btn-success fa fa-check"></button>
+    </div>
+    <div class="col info">
+      <button class="btn btn-danger fa fa-close"></button>
+    </div>
   </div>
 </ng-template>
-
+<br>
+</div>
+</div>
+</div>
 <span>{{ error }}</span>
