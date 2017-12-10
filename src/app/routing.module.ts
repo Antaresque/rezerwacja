@@ -1,3 +1,4 @@
+import { VerifyComponent } from './auth/verify/verify.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -19,7 +20,8 @@ const appRoutes: Routes = [
   { path: 'auth', component: AuthComponent, children: [
     { path: '', redirectTo: 'login',  pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent }
+    { path: 'register', component: RegisterComponent },
+    { path: 'verify', component: VerifyComponent }
   ]},
   { path: 'pokoj/:id', component: PokojComponent },
   { path: 'klient', component: UserComponent, canActivate: [KlientGuard] },

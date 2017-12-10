@@ -90,7 +90,7 @@ function getPayload(){
         $payload = JWT::decode($jwt, $jwt_secret, array('HS256'));
       }
       catch(SignatureInvalidException $e){
-        http_response_code(401);
+        http_response_code(401); return false;
       }
       catch(UnexpectedValueException $e){
         echo $e->getMessage(); return false;

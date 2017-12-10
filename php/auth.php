@@ -9,6 +9,9 @@ if(!empty($request)) {                   // nie ma pustego zapytania wiec musi s
   else if($request[0] == 'register'){    // TODO: zrobic weryfikacje na mail
     include_once($path.'register.php');
   }
+  else if($request[0] == 'verify'){
+    include_once($path.'verify.php');
+  }
   else if($request[0] == 'mydata'){
     if(checkTokenAccess('klient'))
       include_once($path.'mydata.php');
