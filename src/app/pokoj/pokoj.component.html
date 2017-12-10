@@ -1,20 +1,16 @@
-<div class="container">
-  <div class="row text-center">
-    <div class="col-lg">
-      Jakieś super zdjęcie czy coś
+<div class="container text-center">
+  <h2>Zarezerwuj pokój</h2>
+  <div class="row text-center info">
+    <div class="col-lg left rounded ">
+      <br>
+      <h4>Numer pokoju: {{ i.id_pokoju }}</h4><br>
+      <h4>Typ pokoju: {{ i.typ_pokoju }}</h4><br>
+      <h4>Koszt za noc: {{ i.cena_noc }}</h4>
     </div>
-  </div>
-  <div class="row text-center">
-    <div class="col-lg">
-      Jakieś super info o pokoju czy jest wolny w tym terminie czy coś
-    </div>
-  </div>
-  <div class='row text-center'>
+    <div class='col-lg right rounded text-center'>
     <div *ngIf="funkcja === 'klient'; then rezerwacjaTemplate; else loginTemplate"></div>
-
     <ng-template #rezerwacjaTemplate>
       <div *ngIf="formularz; then formTemplate; else msgTemplate"></div>
-
       <ng-template #formTemplate>
         <form [formGroup] = "form" (ngSubmit)="registerEvent()" novalidate>
           <div class="form-group" formGroupName='dates'>
@@ -32,18 +28,16 @@
           </div>
         </form>
       </ng-template>
-
       <ng-template #msgTemplate>
         <div class="alert alert-success mt-2" *ngIf="msg">
           {{this.msg}}
         </div>
       </ng-template>
-
     </ng-template>
-
     <ng-template #loginTemplate>
       Zaloguj się jako klient, żeby zarezerwować pokój.
       <div (click)='moveLogin()' class='btn btn-primary'>Zaloguj się</div>
     </ng-template>
+  </div>
   </div>
 </div>
