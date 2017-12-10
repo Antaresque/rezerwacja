@@ -8,24 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PracComponent implements OnInit {
 
-  dane: {};
+  dane: [];
   error: string;
+  noresults = false;
 
   constructor(private rezerw: RezerwacjeService) { }
 
   ngOnInit() {
-    this.rezerw.niezatwierdzone().subscribe(
-      res => {
-        if('message' in res){
-          this.error = res['message'];
-        }
-        else{
-          this.error = null;
-          this.dane = res;
-        }
-        console.log(res);
-      }
-    );
+    this.refresh();
   }
 
   accept(id){
@@ -35,10 +25,10 @@ export class PracComponent implements OnInit {
           this.error = res['message'];
         }
         else{
-          this.error = null;
-          this.dane = res;
+          this.error = 'Zaakceptowano rezerwację';
         }
         console.log(res);
+        this.refresh();
       }
     )
   }
@@ -49,10 +39,10 @@ export class PracComponent implements OnInit {
           this.error = res['message'];
         }
         else{
-          this.error = null;
-          this.dane = res;
+          this.error = 'Odrzucono rezerwację';
         }
         console.log(res);
+        this.refresh();
       }
     )
   }
@@ -63,8 +53,9 @@ export class PracComponent implements OnInit {
           this.error = res['message'];
         }
         else{
-          this.error = null;
           this.dane = res;
+          if(this.dane.length == 0) this.noresults = true;
+          else this.noresults = false;
         }
         console.log(res);
       }

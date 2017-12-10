@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RezerwacjeService } from './../_core/rezerwacje/rezerwacje.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { tokenNotExpired } from 'angular2-jwt';
@@ -29,7 +29,7 @@ export class PokojComponent implements OnInit {
   loading: boolean = false;
   form: FormGroup;
 
-  constructor(private route: ActivatedRoute, private fb: FormBuilder, private user: UserService, private rezerw: RezerwacjeService) {
+  constructor(private route: ActivatedRoute, private fb: FormBuilder, private user: UserService, private rezerw: RezerwacjeService, private router: Router) {
     this.id = this.route.snapshot.params['id'];
 
     this.form = this.fb.group({
@@ -107,5 +107,10 @@ export class PokojComponent implements OnInit {
             this.form.reset();
           });
       }
+  }
+
+  moveLogin(){
+    if(tokenNotExpired()){ this.user.logout(); }
+    this.router.navigate(['/auth/login']);
   }
 }

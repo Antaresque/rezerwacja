@@ -42,8 +42,8 @@
     </ng-template>
 
     <ng-template #loginTemplate>
-      Zaloguj się, żeby zarezerwować pokój.
-      <div routerLink='/auth/login' class='btn btn-primary'>Zaloguj się</div>
+      Zaloguj się jako klient, żeby zarezerwować pokój.
+      <div (click)='moveLogin()' class='btn btn-primary'>Zaloguj się</div>
     </ng-template>
   </div>
 </div>

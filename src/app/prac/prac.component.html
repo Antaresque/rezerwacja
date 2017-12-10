@@ -2,32 +2,32 @@
   <h4>Rezerwacje oczekujące na zatwierdzenie:</h4>
   <div class="container rounded">
   <div class="kura">
-  <div class="row hed">
-    <div class="col">
-      <h4>Numer rezerwacji</h4>
-    </div>
-    <div class="col">
-      <h4>Numer pokoju</h4>
-    </div>
-    <div class="col">
-      <h4>Data złożenia rezerwacji</h4>
-    </div>
-    <div class="col">
-      <h4>Początek rezerwacji</h4>
-    </div>
-    <div class="col">
-      <h4>Koniec rezerwacji</h4>
-    </div>
-    <div class="col">
-        <h4>Zatwierdź</h4>
-    </div>
-    <div class="col">
-      <h4>Odrzuć</h4>
-    </div>
-</div>
-<div *ngIf='error; else resultsTemplate'></div>
+<div *ngIf='noresults; else resultsTemplate'></div>
 
 <ng-template #resultsTemplate>
+    <div class="row hed">
+        <div class="col">
+          <h4>Numer rezerwacji</h4>
+        </div>
+        <div class="col">
+          <h4>Numer pokoju</h4>
+        </div>
+        <div class="col">
+          <h4>Data złożenia rezerwacji</h4>
+        </div>
+        <div class="col">
+          <h4>Początek rezerwacji</h4>
+        </div>
+        <div class="col">
+          <h4>Koniec rezerwacji</h4>
+        </div>
+        <div class="col">
+            <h4>Zatwierdź</h4>
+        </div>
+        <div class="col">
+          <h4>Odrzuć</h4>
+        </div>
+    </div>
   <div class="row pokoik rounded text-center d-flex align-items-center" *ngFor='let i of dane'>
     <div class="col info">
       <h4>{{ i.id_rezerwacji }}</h4>
@@ -45,15 +45,16 @@
       <h4>{{ i.kon_rezerwacji }}</h4>
     </div>
     <div class="col info">
-      <button class="btn btn-success fa fa-check"></button>
+      <button class="btn btn-success fa fa-check" (click)='accept(i.id_rezerwacji)'></button>
     </div>
     <div class="col info">
-      <button class="btn btn-danger fa fa-close"></button>
+      <button class="btn btn-danger fa fa-close" (click)='delete(i.id_rezerwacji)'></button>
     </div>
   </div>
 </ng-template>
+<div class='alert alert-secondary'><h2>{{ error }}</h2></div>
 <br>
 </div>
 </div>
 </div>
-<span>{{ error }}</span>
+

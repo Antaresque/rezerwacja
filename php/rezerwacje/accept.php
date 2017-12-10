@@ -4,7 +4,7 @@ $id_prac = getPayload()->id;
 
 $check = DB::update('rezerwacje', array('zatwierdzony' => 1), 'id_rezerwacji = %i', $id_rez);
 
-if(DB::affectedcount() > 0){
+if(DB::affectedRows() > 0){
   $result = array('result' => true);
 }
 else error_message('RESERVATION_NOT_FOUND');

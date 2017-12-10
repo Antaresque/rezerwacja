@@ -23,6 +23,14 @@ export class PokojeService {
     return this.http.get(this.API_LINK + 'pokoje').map(res => res.json());
   }
 
+  insert(model){
+    return this.ahttp.get(this.API_LINK + 'pokoje/insert').map(res => res.json());
+  }
+
+  delete(id){
+    return this.ahttp.get(this.API_LINK + 'pokoje/delete').map(res => res.json());
+  }
+
   wolnepokoje(date){
     return this.http.post(this.API_LINK + 'pokoje/wolnepokoje', {date: date}).map(res => res.json());
   }
