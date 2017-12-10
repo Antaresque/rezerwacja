@@ -92,4 +92,8 @@ export class UserService {
   login_szef(model){
     return this.http.post(this.API_LINK + 'auth/login_szef', model).map(res => res.json());
   }
+
+  verify(token){
+    return this.http.post(this.API_LINK + 'auth/verify', {token: token});
+  }
 }

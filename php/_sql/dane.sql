@@ -27,16 +27,16 @@ SET time_zone = "+00:00";
 --
 
 INSERT INTO `klienci` (`id_klienta`, `imie`, `nazwisko`, `nr_tel`, `email`, `haslo`, `login`) VALUES
-(1, 'Yanush', 'Lisiasty', '656565656', 'adijedendwa@gmail.com', '$2y$11$cfwX0EE7tLMY16mTBRJlzOHRaBtyzM9l4cfqpR2ccULHlAp8Fcj46', 'Miszcz'),
-(2, 'Alex', 'Yakumo', '565656565', 'olekfer@yahoo.pl', '$2y$11$6lUwrAvWMYPbFF/.ydLZF.GlLEULorF3fUrOjK4qrFjSjv8XQM19.', 'Uczeń'),
-(3, 'Tadeusz', 'Koniuszko', '123456789', 'mail1@mail.com', '$2y$11$xdW/4pPTqaXm.RvIYMtnkuMGGmQSRNFK8juyl2LBrtpz2C7YfUBBW', 'Klient1'),
-(4, 'Mariusz', 'Lewarski', '987654321', 'mail2@mail.com', '$2y$11$/MrbxpqYDJXeufl7mi8F8e3uxJNJ4oKQJEUH44Fm8de67mQXdqPva', 'Klient2'),
-(5, 'Miłobrat', 'Wszędobylski', '478601647', 'mail3@mail.com', '$2y$11$TAlkALRzzWfxtlYmcnZWVeJrup8DjnigKlQ4QKnZENcVyOh8UTwpm', 'Klient3'),
-(6, 'Mysław', 'Mazowiecki', '572905739', 'mail4@mail.com', '$2y$11$HnV6TMu66Fa0NDNYRIp1wOX8i8Uj4qTb91zwT34TEB3hq.Kd00/w2', 'Klient4'),
-(7, 'Przemysław', 'Yamato', '608376840', 'mail5@mail.com', '$2y$11$ubd0ZQQYfuhbX/b51.9JjeMuE7uWksanYEfxMknQIDm87/R/fko5G', 'Klient5'),
-(8, 'Dijkstra', 'Woroszyłow', '682057386', 'mail6@mail.com', '$2y$11$9zitmPGHpHtX59PMpOYBpuTnot9E1wITpLjOwTc0N.zNIGoFBMCaq', 'Klient6'),
-(9, 'Esteban Hulio Montoya', 'Dela Rosa Ramirez', '739672066', 'mail7@mail.com', '$2y$11$h9GUS51XzkJ2yU5Azi3.1uEHyaBgs1PD.RC8lsyNjrOYZCH4IsQoK', 'Klient7'),
-(10, 'Cirno', 'Scarlet', '999999999', 'mail8@mail.com', '$2y$11$k2fCdrSKn5apCtFvGncBNOz1VEzjP74pSBdopWtBYjzV6Y0D4LL6i', 'Klient8');
+(1, 'Yanush', 'Lisiasty', '656565656', 'adijedendwa@gmail.com', '$2y$11$cfwX0EE7tLMY16mTBRJlzOHRaBtyzM9l4cfqpR2ccULHlAp8Fcj46', 'Miszcz', '1'),
+(2, 'Alex', 'Yakumo', '565656565', 'olekfer@yahoo.pl', '$2y$11$6lUwrAvWMYPbFF/.ydLZF.GlLEULorF3fUrOjK4qrFjSjv8XQM19.', 'Uczeń', '1'),
+(3, 'Tadeusz', 'Koniuszko', '123456789', 'mail1@mail.com', '$2y$11$xdW/4pPTqaXm.RvIYMtnkuMGGmQSRNFK8juyl2LBrtpz2C7YfUBBW', 'Klient1', '1'),
+(4, 'Mariusz', 'Lewarski', '987654321', 'mail2@mail.com', '$2y$11$/MrbxpqYDJXeufl7mi8F8e3uxJNJ4oKQJEUH44Fm8de67mQXdqPva', 'Klient2', '1'),
+(5, 'Miłobrat', 'Wszędobylski', '478601647', 'mail3@mail.com', '$2y$11$TAlkALRzzWfxtlYmcnZWVeJrup8DjnigKlQ4QKnZENcVyOh8UTwpm', 'Klient3', '1'),
+(6, 'Mysław', 'Mazowiecki', '572905739', 'mail4@mail.com', '$2y$11$HnV6TMu66Fa0NDNYRIp1wOX8i8Uj4qTb91zwT34TEB3hq.Kd00/w2', 'Klient4', '1'),
+(7, 'Przemysław', 'Yamato', '608376840', 'mail5@mail.com', '$2y$11$ubd0ZQQYfuhbX/b51.9JjeMuE7uWksanYEfxMknQIDm87/R/fko5G', 'Klient5', '1'),
+(8, 'Dijkstra', 'Woroszyłow', '682057386', 'mail6@mail.com', '$2y$11$9zitmPGHpHtX59PMpOYBpuTnot9E1wITpLjOwTc0N.zNIGoFBMCaq', 'Klient6', '1'),
+(9, 'Esteban Hulio Montoya', 'Dela Rosa Ramirez', '739672066', 'mail7@mail.com', '$2y$11$h9GUS51XzkJ2yU5Azi3.1uEHyaBgs1PD.RC8lsyNjrOYZCH4IsQoK', 'Klient7', '1'),
+(10, 'Cirno', 'Scarlet', '999999999', 'mail8@mail.com', '$2y$11$k2fCdrSKn5apCtFvGncBNOz1VEzjP74pSBdopWtBYjzV6Y0D4LL6i', 'Klient8', '1');
 
 -- --------------------------------------------------------
 
