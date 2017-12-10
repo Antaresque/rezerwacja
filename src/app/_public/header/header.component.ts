@@ -11,7 +11,8 @@ import { tokenNotExpired } from 'angular2-jwt';
 })
 export class HeaderComponent implements OnInit {
 
-  data: any = {};
+  tresc: string;
+  funkcja: string;
   logged: boolean;
 
   constructor(private user: UserService) {
@@ -19,15 +20,26 @@ export class HeaderComponent implements OnInit {
     this.user.logged$.subscribe(
       (value: boolean) => {
         this.logged = value;
-        if(this.logged) this.user.data_user().subscribe(res => this.data = res)
+        this.loginHeader();
       }
     )
   }
 
   ngOnInit() {
-    if(this.logged) this.user.data_user().subscribe(
-      res => this.data = res
-    )
+    this.loginHeader();
+  }
+
+  loginHeader(){
+    if(this.logged) {
+      this.funkcja = this.user.getPayload().funkcja;
+      if(this.funkcja == 'klient')
+        this.user.data_user().subscribe(res => this.tresc = res.imie + ' ' + res.nazwisko);
+      else if(this.funkcja == 'pracownik')
+        this.tresc = 'pracowniku';
+      else if(this.funkcja == 'szef'){
+        this.tresc = 'szefie';
+      }
+    }
   }
 
   logout() {

@@ -39,3 +39,15 @@ function validate_pw($password, $hash){
    */
   return crypt($password, $hash)==$hash;
 }
+/* TESTY
+$data1 = generate_hash('szef');
+$data2 = generate_hash('szef');
+$data3 = generate_hash('szef');
+$data4 = generate_hash('szef');
+
+$haslo = 'szef';
+
+echo $data1."<br>".$data2."<br>".$data3."<br>".$data4."<br>";
+
+echo validate_pw($haslo, $data1).' '.validate_pw($haslo, $data2).' '.validate_pw($haslo, $data3).' '.validate_pw($haslo, $data4);
+*/

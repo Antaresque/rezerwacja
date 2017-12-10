@@ -8,7 +8,9 @@ $msg_arr = array(
   'WRONG_PASS' => 'Nieprawidłowy login/hasło',                                   // podano złe hasło
   'LOGIN_TAKEN' => 'Login jest już zajęty',                         // zajęty login przy rejestracji
   'EMAIL_TAKEN' => 'E-mail jest już zajęty',                       // zajęty e-mail przy rejestracji
-  'FREE_ROOMS_NOT_FOUND' => 'Nie znaleziono wolnych pokojów w tym terminie'      // self-explanatory
+  'FREE_ROOMS_NOT_FOUND' => 'Nie znaleziono wolnych pokojów w tym terminie',     // self-explanatory
+  'UNKNOWN_AUTHFUNCTION' => 'Błąd podczas logowania, spróbuj ponownie',                       // ???
+  'TEST' => 'testowy błąd nr 1',
 );
 
 function error_message($value) {

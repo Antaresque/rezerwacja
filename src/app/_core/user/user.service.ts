@@ -48,6 +48,11 @@ export class UserService {
     this.logged = false;
   }
 
+  getPayload(){
+    let token = localStorage.getItem('token');
+    return this.jwtHelper.decodeToken(token);
+  }
+
   // POST requests below
 
   /**
@@ -76,8 +81,15 @@ export class UserService {
    *
    */
   data_user(){
-    let token = localStorage.getItem('token');
-    let payload = this.jwtHelper.decodeToken(token);
+    let payload = this.getPayload();
     return this.ahttp.post(this.API_LINK + 'auth/mydata', {id: payload.id}).map(res => res.json());
+  }
+
+  login_pracownik(model){
+    return this.http.post(this.API_LINK + 'auth/login_prac', model).map(res => res.json());
+  }
+
+  login_szef(model){
+    return this.http.post(this.API_LINK + 'auth/login_szef', model).map(res => res.json());
   }
 }

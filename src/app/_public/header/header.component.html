@@ -9,10 +9,10 @@
       <ng-template #loggedIn>
         <div class="sm-col dropdown">
           <a class="nav-link dropdown-toggle mr-3 logo" href="#" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Witaj, {{data.nazwisko}} {{data.imie}}
+            Witaj, {{ tresc }}
           </a>
           <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="dropdown2">
-            <a routerLink='user'>Moje konto</a><br>
+            <a [routerLink]='funkcja'>Panel</a><br>
             <a href="#" (click)='logout()'><b>Wyloguj</b></a>
           </div>
         </div>

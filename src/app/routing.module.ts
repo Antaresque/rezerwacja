@@ -6,6 +6,9 @@ import { AuthComponent } from './auth/auth.component';
   import { RegisterComponent } from './auth/register/register.component';
   import { LoginComponent } from './auth/login/login.component';
 import { PokojComponent } from './pokoj/pokoj.component';
+import { KlientGuard } from './_core/guards/klient.guard';
+import { PracGuard } from './_core/guards/prac.guard';
+import { SzefGuard } from './_core/guards/szef.guard';
 import { PracComponent } from './prac/prac.component';
 import { UserComponent } from './user/user.component';
 import { SzefComponent } from './szef/szef.component';
@@ -18,10 +21,10 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent }
   ]},
-  { path: 'pokoj', component: PokojComponent },
-  { path: 'prac', component: PracComponent },
-  { path: 'user', component: UserComponent },
-  { path: 'szef', component: SzefComponent },
+  { path: 'pokoj/:id', component: PokojComponent },
+  { path: 'klient', component: UserComponent, canActivate: [KlientGuard] },
+  { path: 'pracownik', component: PracComponent, canActivate: [PracGuard] },
+  { path: 'szef', component: SzefComponent, canActivate: [SzefGuard] },
   { path: '**', component: PageNotFoundComponent } // 404
 ];
 

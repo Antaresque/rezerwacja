@@ -2,22 +2,13 @@
 $login = $input['login'];
 $email = $input['email'];
 
-$checklogin = DB::queryFirstRow("SELECT * FROM klienci WHERE login = %s", $login);
-$checkemail = DB::queryFirstRow("SELECT * FROM klienci WHERE email = %s", $email);
+$check = DB::queryFirstRow("SELECT * FROM rejestracja_view WHERE login = %s OR email = %s", $login, $email);
   // sprawdź czy login/email znajduje się w bazie
 
-$register_possible = true; // czy można się zarejestrować
-
-if(!is_null($checklogin)) { // jeżeli login znajduje się w bazie to nie można
+if(!is_null($check)) { // jeżeli login znajduje się w bazie to nie można
   error_message('LOGIN_TAKEN');
-  $register_possible = false;
 }
-if(!is_null($checkemail)) { // tak samo dla e-maila
-  error_message('EMAIL_TAKEN');
-  $register_possible = false;
-}
-
-if($register_possible) {
+else {
   $haslo = generate_hash($input['pass']);
   $imie = $input['imie'];
   $nazwisko = $input['nazwisko'];

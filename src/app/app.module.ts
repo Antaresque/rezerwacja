@@ -13,10 +13,10 @@ import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './_core/_core.module';
 import { PublicModule } from './_public/public.module';
 import { HomeModule } from './home/home.module';
-import { PracModule } from './prac/prac.module';
-import { SzefModule } from './szef/szef.module';
-import { UserModule } from './user/user.module';
 import { PokojModule } from './pokoj/pokoj.module';
+import { SzefModule } from './szef/szef.module';
+import { PracModule } from './prac/prac.module';
+import { UserModule } from './user/user.module';
 
 // calendar module
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,9 +35,9 @@ import { RoutingModule } from './routing.module';
     CoreModule.forRoot(),
     HomeModule,
     PokojModule,
+    UserModule,
     PracModule,
     SzefModule,
-    UserModule,
     PublicModule,
     RoutingModule,
     HttpModule,

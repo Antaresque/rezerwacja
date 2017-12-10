@@ -13,6 +13,12 @@ if(!empty($request)) {                   // nie ma pustego zapytania wiec musi s
     if(checkTokenAccess('klient'))
       include_once($path.'mydata.php');
   }
+  else if($request[0] == 'login_prac'){
+    include_once($path.'loginprac.php');
+  }
+  else if($request[0] == 'login_szef'){
+    include_once($path.'loginszef.php');
+  }
   else error_message('UNDEFINED_FUNCTION');
 }
 else error_message('UNDEFINED_FUNCTION');
