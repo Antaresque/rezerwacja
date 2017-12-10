@@ -63,7 +63,7 @@ CREATE TABLE `pracownicy` (
   `nr_telefonu` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_polish_ci NOT NULL,
   `adres` varchar(100) COLLATE utf8_polish_ci NOT NULL,
-  `zatrudniony` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `zatrudniony` date DEFAULT NULL;
   `pensja` varchar(20) COLLATE utf8_polish_ci DEFAULT NULL,
   `haslo` varchar(150) COLLATE utf8_polish_ci NOT NULL,
   `login` varchar(50) COLLATE utf8_polish_ci NOT NULL,
