@@ -21,7 +21,7 @@
             <label for="date_end">data zakończenia</label>
             <input type='date' class="form-control" formControlName="date_end">
           </div>
-          <button [disabled]="loading || error || form.invalid" class="btn btn-secondary">Zarejestruj</button>
+          <button [disabled]="loading || error || form.invalid" class="btn btn-secondary">Zarezerwuj</button>
           <img *ngIf="loading" src="assets/loading.gif">
           <div class="alert alert-danger mt-2" *ngIf="error">
             {{this.error}}
