@@ -4,6 +4,7 @@
 }
 .logo, .navbar-brand{
   font-family: 'ADAMCG';
+  z-index: 2;
 }
 .dropdown-menu{
   font-family: 'Palanquin-Light';
@@ -19,4 +20,5 @@
     width: 100%;
     left: 0;
     text-align: center;
+    z-index: 0;
 }
