@@ -23,6 +23,10 @@ export class PokojeService {
     return this.http.get(this.API_LINK + 'pokoje').map(res => res.json());
   }
 
+  getbyID(id){
+    return this.http.post(this.API_LINK + 'pokoje/getbyid', {id: id}).map(res => res.json());
+  }
+
   insert(model){
     return this.ahttp.get(this.API_LINK + 'pokoje/insert').map(res => res.json());
   }

@@ -1,3 +1,4 @@
+import { PokojeService } from './../_core/pokoje/pokoje.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RezerwacjeService } from './../_core/rezerwacje/rezerwacje.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -28,8 +29,9 @@ export class PokojComponent implements OnInit {
   logged: boolean;
   loading: boolean = false;
   form: FormGroup;
+  dane = [];
 
-  constructor(private route: ActivatedRoute, private fb: FormBuilder, private user: UserService, private rezerw: RezerwacjeService, private router: Router) {
+  constructor(private route: ActivatedRoute, private fb: FormBuilder, private user: UserService, private rezerw: RezerwacjeService, private router: Router, private pokoj: PokojeService) {
     this.id = this.route.snapshot.params['id'];
 
     this.form = this.fb.group({
@@ -79,6 +81,9 @@ export class PokojComponent implements OnInit {
     }
 
     this.formularz = true;
+    this.pokoj.getbyID(this.id).subscribe(
+      res => this.dane = res
+    )
   }
 
   registerEvent(){

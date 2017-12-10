@@ -16,4 +16,12 @@ export class PracownicyService {
   get() {
     return this.ahttp.get(this.API_LINK + 'pracownicy').map(res => res.json());
   }
+
+  insert(model){
+    return this.ahttp.post(this.API_LINK + 'pracownicy/insert', model).map(res => res.json());
+  }
+
+  delete(id){
+    return this.ahttp.post(this.API_LINK + 'pracownicy/delete', {id: id}).map(res => res.json());
+  }
 }

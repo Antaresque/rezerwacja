@@ -5,6 +5,9 @@ $path = './pokoje/';
 if(empty($request)) {                     // puste zapytanie
   include_once($path.'get.php');          // zbiera wszystkie rekordy
 }
+else if($request[0] == 'getbyid'){
+  include_once($path.'getbyid.php');
+}
 else if($request[0] == 'insert') {        // TODO: kod do dodawania =w=
   if(checkTokenAccess('szef'))            // dodawanie pokojów tylko dla szefa
     include_once($path.'insert.php');

@@ -1,11 +1,11 @@
 <div class="container text-center">
   <h2>Zarezerwuj pokój</h2>
   <div class="row text-center info">
-    <div class="col-lg left rounded ">
+    <div class="col-lg left rounded">
       <br>
-      <h4>Numer pokoju: {{ i.id_pokoju }}</h4><br>
-      <h4>Typ pokoju: {{ i.typ_pokoju }}</h4><br>
-      <h4>Koszt za noc: {{ i.cena_noc }}</h4>
+      <h4>Numer pokoju: {{ dane.id_pokoju }}</h4><br>
+      <h4>Typ pokoju: {{ dane.typ_pokoju }}</h4><br>
+      <h4>Koszt za noc: {{ dane.cena_noc }}</h4>
     </div>
     <div class='col-lg right rounded text-center'>
     <div *ngIf="funkcja === 'klient'; then rezerwacjaTemplate; else loginTemplate"></div>
