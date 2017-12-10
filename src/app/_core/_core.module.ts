@@ -1,3 +1,4 @@
+import { RezerwacjeService } from './rezerwacje/rezerwacje.service';
 import { PracGuard } from './guards/prac.guard';
 import { UserService } from './user/user.service';
 import { PokojeService } from './pokoje/pokoje.service';
@@ -38,6 +39,7 @@ export class CoreModule {
                     PokojeService,
                     HttpModule,
                     UserService,
+                    RezerwacjeService,
                     PracGuard,
                     SzefGuard,
                     KlientGuard,

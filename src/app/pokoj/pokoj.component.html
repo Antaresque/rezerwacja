@@ -9,4 +9,41 @@
       Jakieś super info o pokoju czy jest wolny w tym terminie czy coś
     </div>
   </div>
+  <div class='row text-center'>
+    <div *ngIf="funkcja === 'klient'; then rezerwacjaTemplate; else loginTemplate"></div>
+
+    <ng-template #rezerwacjaTemplate>
+      <div *ngIf="formularz; then formTemplate; else msgTemplate"></div>
+
+      <ng-template #formTemplate>
+        <form [formGroup] = "form" (ngSubmit)="registerEvent()" novalidate>
+          <div class="form-group" formGroupName='dates'>
+            <label for="date_start">data rozpoczęcia</label>
+            <input type='date' class="form-control" formControlName="date_start">
+          </div>
+          <div class="form-group" formGroupName='dates'>
+            <label for="date_end">data zakończenia</label>
+            <input type='date' class="form-control" formControlName="date_end">
+          </div>
+          <button [disabled]="loading || form.invalid" class="btn btn-secondary">Zarejestruj</button>
+          <img *ngIf="loading" src="assets/loading.gif">
+          <div class="alert alert-danger mt-2" *ngIf="error">
+            {{this.error}}
+          </div>
+        </form>
+      </ng-template>
+
+      <ng-template #msgTemplate>
+        <div class="alert alert-success mt-2" *ngIf="msg">
+          {{this.msg}}
+        </div>
+      </ng-template>
+
+    </ng-template>
+
+    <ng-template #loginTemplate>
+      Zaloguj się, żeby zarezerwować pokój.
+      <div routerLink='/auth/login' class='btn btn-primary'>Zaloguj się</div>
+    </ng-template>
+  </div>
 </div>

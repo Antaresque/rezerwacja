@@ -80,3 +80,25 @@ function checkTokenID($id){
     return false;
   }
 }
+
+function getPayload(){
+  global $jwt_secret;
+
+    $jwt = getBearerToken();
+    if(isset($jwt)){
+      try{
+        $payload = JWT::decode($jwt, $jwt_secret, array('HS256'));
+      }
+      catch(SignatureInvalidException $e){
+        http_response_code(401);
+      }
+      catch(UnexpectedValueException $e){
+        echo $e->getMessage(); return false;
+      }
+      return $payload;
+    }
+    else {
+      http_response_code(401);
+      return false;
+    }
+}

@@ -11,6 +11,9 @@ $msg_arr = array(
   'FREE_ROOMS_NOT_FOUND' => 'Nie znaleziono wolnych pokojów w tym terminie',     // self-explanatory
   'UNKNOWN_AUTHFUNCTION' => 'Błąd podczas logowania, spróbuj ponownie',                       // ???
   'TEST' => 'testowy błąd nr 1',
+  "WRONG_RESERVATION_DATE" => "Nieprawidłowa data rezerwacji",  //gdy data rozpoczęcia jest większa od daty zakończenia
+  "TOO_OLD_DATE" => "Podano datę starszą od aktualnej",
+  "ALREADY_RESERVED" => "Pokój jest już zarezerwowany w tym terminie: "
 );
 
 function error_message($value) {
