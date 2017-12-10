@@ -13,7 +13,8 @@ $msg_arr = array(
   'TEST' => 'testowy błąd nr 1',
   "WRONG_RESERVATION_DATE" => "Nieprawidłowa data rezerwacji",  //gdy data rozpoczęcia jest większa od daty zakończenia
   "TOO_OLD_DATE" => "Podano datę starszą od aktualnej",
-  "ALREADY_RESERVED" => "Pokój jest już zarezerwowany w tym terminie: "
+  "ALREADY_RESERVED" => "Pokój jest już zarezerwowany w tym terminie: ",
+  'RESERVATION_NOT_FOUND' => 'Błąd rezerwacji. Odśwież listę i spróbuj ponownie'
 );
 
 function error_message($value) {

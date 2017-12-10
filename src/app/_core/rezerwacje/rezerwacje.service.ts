@@ -19,4 +19,15 @@ export class RezerwacjeService {
     return this.ahttp.post(this.API_LINK + 'rezerwacje/insert', model).map(res => res.json());
   }
 
+  niezatwierdzone(){
+    return this.ahttp.get(this.API_LINK + 'rezerwacje/niezatwierdzone').map(res => res.json());
+  }
+
+  accept(id){
+    return this.ahttp.post(this.API_LINK + 'rezerwacje/accept', {id: id}).map(res => res.json());
+  }
+
+  delete(id){
+    return this.ahttp.post(this.API_LINK + 'rezerwacje/delete', {id: id}).map(res => res.json());
+  }
 }
