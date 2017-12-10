@@ -1,39 +1,35 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { Headers, RequestOptions, Response, Http } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
+import { AuthHttp, tokenNotExpired, JwtHelper } from 'angular2-jwt';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class UserService {
 
-  private jwt: string;
-  isLoggedIn: boolean;
-  headers: Headers;
-  api_link = 'http://localhost/angular-rezerwacja/php/api.php/';
+  private API_LINK = 'http://localhost/angular-rezerwacja/php/api.php/';
 
-  constructor(private http: Http) {
-    this.jwt = localStorage.getItem('token');
-    this.isLoggedIn = this.checkLoggedIn();
+  jwtHelper: JwtHelper = new JwtHelper();
 
-    this.headers = new Headers();
-    this.headers.append('Content-Type', 'application/json');
-    if(this.isLoggedIn) this.headers.append("Authorization", "Bearer " + this.jwt);
-  }
+  logged$: Observable<boolean>;
+  public loggedSubject = new Subject<boolean>();
 
-  /**
-   * Update value of boolean
-   */
-  checkLoggedIn() {
-    return (this.jwt != null);
+  constructor(private http: Http, private ahttp: AuthHttp) {
+    this.logged$ = this.loggedSubject.asObservable();
+    this.logged = tokenNotExpired();
   }
 
   /**
    *  Update service boolean value based on JWT token and return its value.
    */
-  getLoggedIn(){
-    this.isLoggedIn = this.checkLoggedIn();
-    return this.isLoggedIn;
+  set logged(value){
+    console.log(value);
+    this.loggedSubject.next(value);
   }
 
+  get logged(){
+    return tokenNotExpired();
+  }
   /**
    * Save JWT token from server to localStorage.
    *
@@ -41,17 +37,7 @@ export class UserService {
    */
   setJWT(jwt_temp) { // po zalogowaniu chyba
     localStorage.setItem('token', jwt_temp);
-    this.jwt = jwt_temp;
-    this.headers.append("Authorization", "Bearer " + this.jwt);
-    this.isLoggedIn = this.checkLoggedIn();
-  }
-  /**
-   * Read data (payload) of JWT token.
-   */
-  getPayload() {
-    const base64Url = this.jwt.split('.')[1];
-    const base64 = base64Url.replace('-', '+').replace('_', '/');
-    return JSON.parse(window.atob(base64));
+    this.logged = tokenNotExpired();
   }
 
   /**
@@ -59,9 +45,7 @@ export class UserService {
    */
   logout() {
     localStorage.removeItem('token');
-    this.jwt = null;
-    this.headers.delete("Autorization");
-    this.isLoggedIn = false;
+    this.logged = false;
   }
 
   // POST requests below
@@ -73,7 +57,7 @@ export class UserService {
    * @param {JSON} user JSON array with login and password.
    */
   login(user) {
-    return this.http.post(this.api_link + 'auth/login', user, {headers: this.headers}).map(
+    return this.http.post(this.API_LINK + 'auth/login', user).map(
       res =>
         //console.log(res); //<- do testów
         res.json());
@@ -85,14 +69,15 @@ export class UserService {
    * @param {JSON} user JSON array with user data.
    */
   register(user) {
-    return this.http.post(this.api_link + 'auth/register', user, {headers: this.headers}).map(res => res.json());
+    return this.http.post(this.API_LINK + 'auth/register', user).map(res => res.json());
   }
 
   /** Get data about currently logged user thro POST request from database.
    *
    */
   data_user(){
-    let payload = this.getPayload();
-    return this.http.post(this.api_link + 'auth/mydata', {id: payload.id}, {headers: this.headers}).map(res => res.json());
+    let token = localStorage.getItem('token');
+    let payload = this.jwtHelper.decodeToken(token);
+    return this.ahttp.post(this.API_LINK + 'auth/mydata', {id: payload.id}).map(res => res.json());
   }
 }

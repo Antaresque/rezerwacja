@@ -21,7 +21,7 @@ const appRoutes: Routes = [
   { path: 'pokoj', component: PokojComponent },
   { path: 'prac', component: PracComponent },
   { path: 'user', component: UserComponent },
-  {path: 'szef', component: SzefComponent },
+  { path: 'szef', component: SzefComponent },
   { path: '**', component: PageNotFoundComponent } // 404
 ];
 

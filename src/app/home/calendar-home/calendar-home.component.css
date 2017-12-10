@@ -3,6 +3,7 @@
 }
 .arrow:hover{
   background: rgba(220,220,220,0.1);
+  cursor: pointer;
 }
 h3{
   font-family: 'Palanquin-SemiBold';

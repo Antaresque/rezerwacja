@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   constructor(private fb: FormBuilder, private user: UserService, private router: Router) { }
 
   loading = false;
-  error;
+  error: string;
   model: any = {};
 
   ngOnInit() {

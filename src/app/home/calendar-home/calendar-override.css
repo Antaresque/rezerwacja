@@ -17,6 +17,9 @@
 .cal-cell{
   font-family: 'Palanquin-Light';
 }
+.cal-day-cell:not(.cal-day-selected){
+  cursor: pointer;
+}
 
 .noselect{
   -webkit-user-select: none;  /* Chrome all / Safari all */

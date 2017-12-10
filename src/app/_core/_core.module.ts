@@ -7,7 +7,12 @@ import {
   Optional,
   SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http, RequestOptions } from '@angular/http';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
+
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig({globalHeaders: [{'Content-Type':'application/json'}],}), http, options);
+}
 
 @NgModule({
   imports: [
@@ -26,7 +31,12 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
         ngModule: CoreModule,
-        providers: [PracownicyService, PokojeService, HttpModule, UserService]
+        providers: [PracownicyService,
+                    PokojeService,
+                    HttpModule,
+                    UserService,
+                    {provide: AuthHttp, useFactory: authHttpServiceFactory, deps: [Http, RequestOptions]}
+                  ]
     };
   }
 

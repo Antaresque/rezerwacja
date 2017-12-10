@@ -7,7 +7,8 @@ $pass = $input['pass']; // pobierz login/hasło z POST
 $data = DB::queryFirstRow("SELECT * FROM klienci WHERE login = %s", $login);
 // sprawdź, czy istnieje użytkownik w tabeli
 
-if(is_null($data)) { // brak wyników
+if(is_null($data)) { // brak wyników w klienci
+  // zrobic sprawdzanie jutro =w=
   error_message('LOGIN_NOT_FOUND');
 }
 else {
