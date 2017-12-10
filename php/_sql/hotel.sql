@@ -179,6 +179,13 @@ CREATE VIEW `rejestracja_view`
     UNION SELECT login, email, funkcja FROM pracownicy;
 
 --
+-- Widok do zatwierdzonych rezerwacji
+--
+
+CREATE VIEW `rezerwacja_view`
+  AS SELECT * FROM rezerwacje WHERE `zatwierdzony` = '1';
+
+--
 -- Wyzwalacz dodający datę zatrudnienia
 --
 
