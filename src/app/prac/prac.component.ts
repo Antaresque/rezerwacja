@@ -1,3 +1,4 @@
+import { RezerwacjeService } from './../_core/rezerwacje/rezerwacje.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,66 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PracComponent implements OnInit {
 
-  constructor() { }
+  dane: {};
+  error: string;
+
+  constructor(private rezerw: RezerwacjeService) { }
 
   ngOnInit() {
+    this.rezerw.niezatwierdzone().subscribe(
+      res => {
+        if('message' in res){
+          this.error = res['message'];
+        }
+        else{
+          this.error = null;
+          this.dane = res;
+        }
+        console.log(res);
+      }
+    );
   }
 
+  accept(id){
+    this.rezerw.accept(id).subscribe(
+      res => {
+        if('message' in res){
+          this.error = res['message'];
+        }
+        else{
+          this.error = null;
+          this.dane = res;
+        }
+        console.log(res);
+      }
+    )
+  }
+  delete(id){
+    this.rezerw.delete(id).subscribe(
+      res => {
+        if('message' in res){
+          this.error = res['message'];
+        }
+        else{
+          this.error = null;
+          this.dane = res;
+        }
+        console.log(res);
+      }
+    )
+  }
+  refresh(){
+    this.rezerw.niezatwierdzone().subscribe(
+      res => {
+        if('message' in res){
+          this.error = res['message'];
+        }
+        else{
+          this.error = null;
+          this.dane = res;
+        }
+        console.log(res);
+      }
+    );
+  }
 }

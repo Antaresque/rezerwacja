@@ -1,3 +1,9 @@
-<p>
-  prac works!
-</p>
+<div *ngIf='error; then noResultsTemplate'></div>
+
+<ng-template #resultsTemplate>
+  <div *ngFor='let i of dane'>
+    {{ i.id_pokoju }}
+  </div>
+</ng-template>
+
+<span>{{ error }}</span>

@@ -21,4 +21,8 @@ else if($request[0] == 'delete') {
 else if($request[0] == 'sprawdz') {
   include_once($path.'sprawdz.php');
 }
+else if($request[0] == 'niezatwierdzone') {
+  if(checkTokenAccess('pracownik'))
+    include_once($path.'niezatw.php');
+}
 else error_message('UNDEFINED_FUNCTION');

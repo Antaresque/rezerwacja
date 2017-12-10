@@ -1,5 +1,4 @@
 <?php
-
 $id_klienta = getPayload()->id;
 
 if(!$id_klienta)
