@@ -63,12 +63,12 @@ CREATE TABLE `pracownicy` (
   `nr_telefonu` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_polish_ci NOT NULL,
   `adres` varchar(100) COLLATE utf8_polish_ci NOT NULL,
-  `zatrudniony` date DEFAULT NULL;
-  `pensja` varchar(20) COLLATE utf8_polish_ci DEFAULT NULL,
+  `zatrudniony` date DEFAULT NULL,
+  `pensja` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `haslo` varchar(150) COLLATE utf8_polish_ci NOT NULL,
   `login` varchar(50) COLLATE utf8_polish_ci NOT NULL,
   `funkcja` varchar(50) COLLATE utf8_polish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -84,7 +84,7 @@ CREATE TABLE `rezerwacje` (
   `pocz_rezerwacji` date NOT NULL,
   `kon_rezerwacji` date NOT NULL,
   `data_rejestracji` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `zatwierdzony` tinyint(1), DEFAULT 0;
+  `zatwierdzony` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
@@ -177,6 +177,16 @@ ALTER TABLE `rezerwacje`
 CREATE VIEW `rejestracja_view` 
   AS SELECT login, email, 'klient' as `funkcja` FROM klienci 
     UNION SELECT login, email, funkcja FROM pracownicy;
+
+--
+-- Wyzwalacz dodający datę zatrudnienia
+--
+
+CREATE TRIGGER zatrudniony
+BEFORE INSERT
+ON pracownicy
+FOR EACH ROW 
+SET NEW.zatrudniony = NOW();
 
 COMMIT;
 
