@@ -63,7 +63,7 @@ CREATE TABLE `pracownicy` (
   `nr_telefonu` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_polish_ci NOT NULL,
   `adres` varchar(100) COLLATE utf8_polish_ci NOT NULL,
-  `zatrudniony` date DEFAULT NULL,
+  `zatrudniony` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `pensja` varchar(20) COLLATE utf8_polish_ci DEFAULT NULL,
   `haslo` varchar(150) COLLATE utf8_polish_ci NOT NULL,
   `login` varchar(50) COLLATE utf8_polish_ci NOT NULL,
@@ -83,7 +83,8 @@ CREATE TABLE `rezerwacje` (
   `id_pracownika` int(11) NOT NULL,
   `pocz_rezerwacji` date NOT NULL,
   `kon_rezerwacji` date NOT NULL,
-  `data_rejestracji` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `data_rejestracji` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `zatwierdzony` tinyint(1), DEFAULT 0;
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
