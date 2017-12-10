@@ -1,5 +1,4 @@
 <?php
-
 // sprawdz czy pokoj nie jest zajety tego dnia
 // sprawdz czy daty nie sa przed data aktualna
 $date_now = strtotime('today');
