@@ -1,11 +1,21 @@
-<div *ngIf='error; then noResultsTemplate; else resultsTemplate'></div>
 
+<div *ngIf='error; then noResultsTemplate; else resultsTemplate'></div>
 <ng-template #resultsTemplate>
-  <div *ngFor='let i of dane'>
-    {{ i.id_pokoju }}
+  <div class="row pokoik rounded" *ngFor='let i of dane'>
+    <div class="col-sm info">
+      <h4>{{ i.id_pokoju }}</h4>
+    </div>
+    <div class="col-sm info">
+      <h4>{{ i.typ_pokoju }}</h4>
+    </div>
+    <div class="col-sm info">
+      <h4>{{ i.cena_noc }} złotych polskich</h4>
+    </div>
+    <div class="col-sm button">
+      <button class="btn btn-lg fa fa-bell"></button>
+    </div>
   </div>
 </ng-template>
-
 <ng-template #noResultsTemplate>
   <span>{{ error }}</span>
 </ng-template>

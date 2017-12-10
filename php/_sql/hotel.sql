@@ -185,7 +185,7 @@ CREATE VIEW `rejestracja_view`
 CREATE TRIGGER zatrudniony
 BEFORE INSERT
 ON pracownicy
-FOR EACH ROW 
+FOR EACH ROW
 SET NEW.zatrudniony = NOW();
 
 COMMIT;
