@@ -35,7 +35,8 @@ CREATE TABLE `klienci` (
   `nr_tel` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_polish_ci DEFAULT NULL,
   `haslo` varchar(150) COLLATE utf8_polish_ci NOT NULL,
-  `login` varchar(50) COLLATE utf8_polish_ci NOT NULL
+  `login` varchar(50) COLLATE utf8_polish_ci NOT NULL,
+  `aktywny` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
