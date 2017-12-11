@@ -5,10 +5,37 @@
   </div>
   <div class="container text-center rounded">
     <h3>Pracownicy</h3>
-  <div class="row info rounded">
+    <h5>Dodaj pracownika: <button class="btn btn-sm btn-success fa fa-plus"></button></h5>
+    <div class="row nag">
+        <div class="col-sm">
+          <h5>ID pracownika</h5>
+        </div>
+        <div class="col-sm">
+          <h5>Imię</h5>
+        </div>
+        <div class="col-sm">
+          <h5>Nazwisko</h5>
+        </div>
+        <div class="col-sm">
+          <h5>E-mail</h5>
+        </div>
+        <div class="col-sm">
+          <h5>Adres</h5>
+        </div>
+        <div class="col-sm">
+          <h5>Data zatrudnienia</h5>
+        </div>
+        <div class="col-sm">
+          <h5>Pensja</h5>
+        </div>
+        <div class="col-sm-1">
+          <h5>Usuń</h5>
+        </div>
+      </div>
       <div *ngIf='error; then noResultsTemplate; else resultsTemplate'></div>
       <ng-template #resultsTemplate>
-            <div class="row rounded text-center" *ngFor='let i of danepracownicy'>
+            <div *ngFor='let i of danepracownicy'>
+              <div class="row info rounded">
               <div class="col-sm">
                 {{ i.id_pracownika }}
               </div>
@@ -30,37 +57,53 @@
               <div class="col-sm">
                 {{ i.pensja }}
               </div>
-              <div class="col-sm button">
+              <div class="col-sm-1 button">
                 <button class="btn btn-danger fa fa-close" routerLink=''></button>
+              </div>
               </div>
             </div>
           </ng-template>
           <ng-template #noResultsTemplate>
               <span>{{ error }}</span>
             </ng-template>
-  </div>
   <h3>Pokoje</h3>
-  <div class="row info rounded">
+  <h5>Dodaj pokój: <button class="btn btn-sm btn-success fa fa-plus"></button></h5>
+  <div class="row nag">
+    <div class="col-sm">
+      <h5>Numer pokoju</h5>
+    </div>
+    <div class="col-sm">
+      <h5>Typ pokoju</h5>
+    </div>
+    <div class="col-sm">
+      <h5>Cena za noc</h5>
+    </div>
+    <div class="col-sm-1">
+      <h5>Usuń</h5>
+    </div>
+  </div>
     <div *ngIf='error; then noResultsTemplate2; else resultsTemplate2'></div>
     <ng-template #resultsTemplate2>
-          <div class="row rounded text-center" *ngFor='let i of danepokoje'>
+          <div *ngFor='let i of danepokoje'>
+            <div class="row info rounded">
             <div class="col-sm">
-              <h4>{{ i.id_pokoju }}</h4>
+              <h5>{{ i.id_pokoju }}</h5>
             </div>
             <div class="col-sm">
-              <h4>{{ i.typ_pokoju }}</h4>
+              <h5>{{ i.typ_pokoju }}</h5>
             </div>
             <div class="col-sm">
-              <h4>{{ i.cena_noc }} złotych polskich</h4>
+              <h5>{{ i.cena_noc }} złotych polskich</h5>
             </div>
-            <div class="col-sm button">
+            <div class="col-sm-1 button">
               <button class="btn btn-danger fa fa-close" routerLink=''></button>
             </div>
+</div>
           </div>
         </ng-template>
         <ng-template #noResultsTemplate2>
             <span>{{ error }}</span>
           </ng-template>
-  </div>
+  
 
 </div>
