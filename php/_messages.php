@@ -16,7 +16,8 @@ $msg_arr = array(
   "ALREADY_RESERVED" => "Pokój jest już zarezerwowany w tym terminie: ",
   'RESERVATION_NOT_FOUND' => 'Błąd rezerwacji. Odśwież listę i spróbuj ponownie',
   'ACCOUNT_NOT_ACTIVE' => 'Konto nieaktywne, potwierdź konto przez e-mail',
-  'ROOM_NOT_EXIST' => 'Nie znaleziono pokoju'
+  'ROOM_NOT_EXIST' => 'Nie znaleziono pokoju',
+  'WRONG_MAIL' => 'Nieprawidłowy e-mail'
 );
 
 function error_message($value) {

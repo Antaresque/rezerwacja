@@ -42,8 +42,8 @@
         <h4>{{ i.kon_rezerwacji }}</h4>
       </div>
       <div class="col info">
-        <h4 *ngIf='i.zatwierdzony'>zatwierdzona</h4>
-        <h4 *ngIf='!i.zatwierdzony'>oczekująca</h4>
+        <h4 *ngIf='i.zatwierdzony === 1'>zatwierdzona</h4>
+        <h4 *ngIf='i.zatwierdzony === 0'>oczekująca</h4>
       </div>
     </div>
   </ng-template>
