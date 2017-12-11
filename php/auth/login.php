@@ -15,7 +15,7 @@ else {
   if($funkcja == 'klient'){
     $data2 = DB::queryFirstRow("SELECT * FROM klienci WHERE login = %s AND aktywny = 1", $login);
 
-    if(is_null($data)) error_message('ACCOUNT_NOT_ACTIVE');
+    if(is_null($data2)) error_message('ACCOUNT_NOT_ACTIVE');
     else {
       $id = $data2['id_klienta'];
 
