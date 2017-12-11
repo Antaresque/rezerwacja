@@ -51,6 +51,7 @@ export class PracComponent implements OnInit {
       res => {
         if('message' in res){
           this.error = res['message'];
+          this.noresults = true;
         }
         else{
           this.dane = res;

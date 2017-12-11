@@ -29,7 +29,7 @@ export class PokojComponent implements OnInit {
   logged: boolean;
   loading: boolean = false;
   form: FormGroup;
-  dane = {};
+  dane: any = {};
 
   constructor(private route: ActivatedRoute, private fb: FormBuilder, private user: UserService, private rezerw: RezerwacjeService, private router: Router, private pokoj: PokojeService) {
     this.id = this.route.snapshot.params['id'];

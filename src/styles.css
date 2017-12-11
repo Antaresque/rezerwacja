@@ -4,11 +4,7 @@
 
 @font-face {
   font-family: 'ADAMCG';
-  src: url('/assets/ADAM.CG PRO.otf') format("opentype");
-}
-@font-face {
-  font-family: 'Anson';
-  src: url('/assets/Anson-Regular.otf') format("opentype");
+  src: url('/assets/ADAM.CG_PRO.otf');
 }
 @font-face {
   font-family: 'Palanquin-Light';

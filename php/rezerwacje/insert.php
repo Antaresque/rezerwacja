@@ -38,6 +38,12 @@ else {
         'pocz_rezerwacji' => $date_start,
         'kon_rezerwacji' => $date_end));
       $result = array('result' => 'Twoja rezerwacja została przyjęta i czeka na zatwierdzenie');
+
+      $k_data = DB::queryFirstRow('SELECT * FROM klienci WHERE id_klienta = %i', $id_klienta);
+      $p_data = DB::queryFirstRow('SELECT * FROM pokoje WHERE id_pokoju = %i', $id_pokoju);
+      $email = $k_data['email'];
+      $string = 'Numer pokoju :'.$id_pokoju.', Typ pokoju: '.$p_data['typ_pokoju'].', Cena za nocleg: '.$p_data['cena_noc'];
+      mail_message($email, 'RESERVATION', $string);
     }
   }
 }

@@ -17,7 +17,7 @@ export class VerifyComponent implements OnInit {
         this.token = params['token'] || null;
         if(this.token != null){
           this.user.verify(this.token).subscribe(
-            res => this.router.navigate(['/auth/login'])
+            res => this.router.navigate(['/auth/login'], {queryParams: {redirect: false}})
           )
         }
       });
