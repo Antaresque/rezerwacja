@@ -32,7 +32,7 @@
           <h5>Usuń</h5>
         </div>
       </div>
-      <div *ngIf='error; then noResultsTemplate; else resultsTemplate'></div>
+      <div *ngIf='errorpok; then noResultsTemplate; else resultsTemplate'></div>
       <ng-template #resultsTemplate>
             <div *ngFor='let i of danepracownicy'>
               <div class="row info rounded">
@@ -64,7 +64,7 @@
             </div>
           </ng-template>
           <ng-template #noResultsTemplate>
-              <span *ngIf='errorpok'>{{ errorpok }}</span>
+              <span>{{ errorpok }}</span>
             </ng-template>
   <h3>Pokoje</h3>
   <h5>Dodaj pokój: <button class="btn btn-sm btn-success fa fa-plus" (click)='addpok()'></button></h5>
@@ -82,7 +82,7 @@
       <h5>Usuń</h5>
     </div>
   </div>
-    <div *ngIf='error; then noResultsTemplate2; else resultsTemplate2'></div>
+    <div *ngIf='errorprac; then noResultsTemplate2; else resultsTemplate2'></div>
     <ng-template #resultsTemplate2>
           <div *ngFor='let i of danepokoje'>
             <div class="row info rounded">
@@ -101,7 +101,9 @@
 </div>
           </div>
         </ng-template>
+        <ng-template #noResultsTemplate2>
+            <span>{{ errorprac }}</span>
+          </ng-template>
 
-<span *ngIf='errorprac'>{{ errorprac }}</span>
 
 </div>
