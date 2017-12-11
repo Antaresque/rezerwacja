@@ -41,8 +41,8 @@
   </div>
   <h3>Pokoje</h3>
   <div class="row info rounded">
-    <div *ngIf='error; then noResultsTemplate; else resultsTemplate'></div>
-    <ng-template #resultsTemplate>
+    <div *ngIf='error; then noResultsTemplate2; else resultsTemplate2'></div>
+    <ng-template #resultsTemplate2>
           <div class="row rounded text-center" *ngFor='let i of danepokoje'>
             <div class="col-sm">
               <h4>{{ i.id_pokoju }}</h4>
@@ -58,9 +58,9 @@
             </div>
           </div>
         </ng-template>
-        <ng-template #noResultsTemplate>
+        <ng-template #noResultsTemplate2>
             <span>{{ error }}</span>
           </ng-template>
   </div>
-  
+
 </div>
