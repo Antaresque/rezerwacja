@@ -21,6 +21,9 @@ export class PracownicyService {
     return this.ahttp.post(this.API_LINK + 'pracownicy/insert', model).map(res => res.json());
   }
 
+  change(model){
+    return this.ahttp.post(this.API_LINK + 'pracownicy/change', model).map(res => res.json());
+  }
   delete(id){
     return this.ahttp.post(this.API_LINK + 'pracownicy/delete', {id: id}).map(res => res.json());
   }

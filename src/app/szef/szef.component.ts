@@ -22,6 +22,9 @@ export class SzefComponent implements OnInit {
     this.getprac();
   }
 
+
+  //pokoje
+
   getpok(){
     this.pok.get().subscribe(
       res => {
@@ -34,7 +37,38 @@ export class SzefComponent implements OnInit {
       }
     )
   }
+  addpok(model){
+    this.pok.insert(model).subscribe(
+      res => {
+        if('message' in res){
+          this.errorpok = res['message'];
+        }
+        this.getpok();
+      }
+    );
+  }
+  changepok(model){
+    this.pok.change(model).subscribe(
+      res => {
+        if('message' in res){
+          this.errorpok = res['message'];
+        }
+        this.getpok();
+      }
+    );
+  }
+  deletepok(id){
+    this.pok.delete(id).subscribe(
+      res => {
+        if('message' in res){
+          this.errorpok = res['message'];
+        }
+        this.getpok();
+      }
+    );
+  }
 
+  //pracownicy
   getprac(){
     this.prac.get().subscribe(
       res => {
@@ -47,4 +81,36 @@ export class SzefComponent implements OnInit {
       }
     )
   }
+  addprac(model){
+    this.prac.insert(model).subscribe(
+      res => {
+        if('message' in res){
+          this.errorprac = res['message'];
+        }
+        this.getprac();
+      }
+    );
+  }
+  changeprac(model){
+    this.prac.change(model).subscribe(
+      res => {
+        if('message' in res){
+          this.errorprac = res['message'];
+        }
+        this.getprac();
+      }
+    );
+  }
+  deleteprac(id){
+    this.prac.delete(id).subscribe(
+      res => {
+        if('message' in res){
+          this.errorprac = res['message'];
+        }
+        this.getprac();
+      }
+    );
+  }
+
+
 }

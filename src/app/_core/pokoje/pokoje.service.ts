@@ -27,12 +27,23 @@ export class PokojeService {
     return this.http.post(this.API_LINK + 'pokoje/getbyid', {id: id}).map(res => res.json());
   }
 
+  /**
+   * dodaje pokój
+   * @param model (typ + cena)
+   */
   insert(model){
-    return this.ahttp.get(this.API_LINK + 'pokoje/insert').map(res => res.json());
+    return this.ahttp.post(this.API_LINK + 'pokoje/insert', model).map(res => res.json());
+  }
+  /**
+   * zmienia pokój
+   * @param model (id + typ + cena)
+   */
+  change(model){
+    return this.ahttp.post(this.API_LINK + 'pokoje/change', model).map(res => res.json());
   }
 
   delete(id){
-    return this.ahttp.get(this.API_LINK + 'pokoje/delete').map(res => res.json());
+    return this.ahttp.post(this.API_LINK + 'pokoje/delete', {id: id}).map(res => res.json());
   }
 
   wolnepokoje(date){
