@@ -6,10 +6,61 @@
   <div class="container text-center rounded">
     <h3>Pracownicy</h3>
   <div class="row info rounded">
-    *jakaś super pętla*
+      <div *ngIf='error; then noResultsTemplate; else resultsTemplate'></div>
+      <ng-template #resultsTemplate>
+            <div class="row rounded text-center" *ngFor='let i of danepracownicy'>
+              <div class="col-sm">
+                {{ i.id_pracownika }}
+              </div>
+              <div class="col-sm">
+                {{ i.imie }}
+              </div>
+              <div class="col-sm">
+                {{ i.nazwisko }}
+              </div>
+              <div class="col-sm">
+                {{ i.email }}
+              </div>
+              <div class="col-sm">
+                {{ i.adres }}
+              </div>
+              <div class="col-sm">
+                {{ i.zatrudniony }}
+              </div>
+              <div class="col-sm">
+                {{ i.pensja }}
+              </div>
+              <div class="col-sm button">
+                <button class="btn btn-danger fa fa-close" routerLink=''></button>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template #noResultsTemplate>
+              <span>{{ error }}</span>
+            </ng-template>
   </div>
   <h3>Pokoje</h3>
   <div class="row info rounded">
-    *jakaś inna super pętla*
+    <div *ngIf='error; then noResultsTemplate; else resultsTemplate'></div>
+    <ng-template #resultsTemplate>
+          <div class="row rounded text-center" *ngFor='let i of danepokoje'>
+            <div class="col-sm">
+              <h4>{{ i.id_pokoju }}</h4>
+            </div>
+            <div class="col-sm">
+              <h4>{{ i.typ_pokoju }}</h4>
+            </div>
+            <div class="col-sm">
+              <h4>{{ i.cena_noc }} złotych polskich</h4>
+            </div>
+            <div class="col-sm button">
+              <button class="btn btn-danger fa fa-close" routerLink=''></button>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template #noResultsTemplate>
+            <span>{{ error }}</span>
+          </ng-template>
   </div>
+  
 </div>
