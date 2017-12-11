@@ -28,7 +28,7 @@
     <div class="form-group">
       <input type="text" placeholder="Adres" class="form-control" formControlName="adres">
     </div>
-    <button [disabled]="loading || form.invalid" class="btn btn-primary">Zarejestruj</button>
+    <button [disabled]="loading || form_prac.invalid" class="btn btn-primary">Zarejestruj</button>
     <img *ngIf="loading" src="assets/loading.gif">
     <div class="alert alert-danger mt-2" *ngIf="error">
       {{this.error}}
@@ -44,7 +44,7 @@
         <div class="form-group">
           <input type="text" placeholder="Cena za noc" class="form-control" formControlName="cena">
         </div>
-        <button [disabled]="loading || form.invalid" class="btn btn-primary">Zarejestruj</button>
+        <button [disabled]="loading || form_pok.invalid" class="btn btn-primary">Zarejestruj</button>
         <img *ngIf="loading" src="assets/loading.gif">
         <div class="alert alert-danger mt-2" *ngIf="error">
           {{this.error}}

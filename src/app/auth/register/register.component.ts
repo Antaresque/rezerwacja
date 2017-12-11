@@ -45,7 +45,6 @@ export class RegisterComponent implements OnInit {
       formValue.pass = formValue.passGroup.pass;
       delete formValue.passGroup;
       this.loading = true;
-      console.log(formValue);
       this.user.register(formValue).subscribe(
           res => {
             if('message' in res) {

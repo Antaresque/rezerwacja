@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { PracownicyService } from './../_core/pracownicy/pracownicy.service';
 import { PokojeService } from './../_core/pokoje/pokoje.service';
 import { Component, OnInit } from '@angular/core';
@@ -15,7 +16,7 @@ export class SzefComponent implements OnInit {
   errorpok = null;
   errorprac = null;
 
-  constructor(private pok: PokojeService, private prac: PracownicyService) { }
+  constructor(private pok: PokojeService, private prac: PracownicyService, private router: Router) { }
 
   ngOnInit() {
     this.getpok();
@@ -37,26 +38,10 @@ export class SzefComponent implements OnInit {
       }
     )
   }
-  addpok(model){
-    this.pok.insert(model).subscribe(
-      res => {
-        if('message' in res){
-          this.errorpok = res['message'];
-        }
-        this.getpok();
-      }
-    );
+  addpok(){
+    this.router.navigate(['/szef/add'], {queryParams: {param: 'pokoje'}});
   }
-  changepok(model){
-    this.pok.change(model).subscribe(
-      res => {
-        if('message' in res){
-          this.errorpok = res['message'];
-        }
-        this.getpok();
-      }
-    );
-  }
+
   deletepok(id){
     if(confirm('Czy na pewno chcesz usunąć ten pokój?')){
       this.pok.delete(id).subscribe(
@@ -83,26 +68,10 @@ export class SzefComponent implements OnInit {
       }
     )
   }
-  addprac(model){
-    this.prac.insert(model).subscribe(
-      res => {
-        if('message' in res){
-          this.errorprac = res['message'];
-        }
-        this.getprac();
-      }
-    );
+  addprac(){
+    this.router.navigate(['/szef/add'], {queryParams: {param: 'pracownicy'}});
   }
-  changeprac(model){
-    this.prac.change(model).subscribe(
-      res => {
-        if('message' in res){
-          this.errorprac = res['message'];
-        }
-        this.getprac();
-      }
-    );
-  }
+
   deleteprac(id){
     if(confirm('Czy na pewno chcesz usunąć tego pracownika?')){
       this.prac.delete(id).subscribe(

@@ -5,7 +5,7 @@
   </div>
   <div class="container text-center rounded">
     <h3>Pracownicy</h3>
-    <h5>Dodaj pracownika: <button class="btn btn-sm btn-success fa fa-plus"></button></h5>
+    <h5>Dodaj pracownika: <button (click)='addprac()' class="btn btn-sm btn-success fa fa-plus"></button></h5>
     <div class="row nag">
         <div class="col-sm">
           <h5>ID pracownika</h5>
@@ -58,7 +58,7 @@
                 {{ i.pensja }}
               </div>
               <div class="col-sm-1 button">
-                <button class="btn btn-danger fa fa-close" routerLink=''></button>
+                <button class="btn btn-danger fa fa-close" (click)='deleteprac(i.id_pracownika)'></button>
               </div>
               </div>
             </div>
@@ -67,7 +67,7 @@
               <span>{{ error }}</span>
             </ng-template>
   <h3>Pokoje</h3>
-  <h5>Dodaj pokój: <button class="btn btn-sm btn-success fa fa-plus"></button></h5>
+  <h5>Dodaj pokój: <button class="btn btn-sm btn-success fa fa-plus" (click)='addpok()'></button></h5>
   <div class="row nag">
     <div class="col-sm">
       <h5>Numer pokoju</h5>
@@ -96,7 +96,7 @@
               <h5>{{ i.cena_noc }} złotych polskich</h5>
             </div>
             <div class="col-sm-1 button">
-              <button class="btn btn-danger fa fa-close" routerLink=''></button>
+              <button class="btn btn-danger fa fa-close" (click)='deletepok(i.id_pokoju)'></button>
             </div>
 </div>
           </div>
@@ -104,6 +104,6 @@
         <ng-template #noResultsTemplate2>
             <span>{{ error }}</span>
           </ng-template>
-  
+
 
 </div>
