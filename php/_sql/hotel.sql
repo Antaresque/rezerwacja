@@ -81,7 +81,7 @@ CREATE TABLE `rezerwacje` (
   `id_rezerwacji` int(11) NOT NULL,
   `id_klienta` int(11) NOT NULL,
   `id_pokoju` int(11) NOT NULL,
-  `id_pracownika` int(11) NOT NULL,
+  `id_pracownika` int(11) DEFAULT NULL,
   `pocz_rezerwacji` date NOT NULL,
   `kon_rezerwacji` date NOT NULL,
   `data_rejestracji` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,

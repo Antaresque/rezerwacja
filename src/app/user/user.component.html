@@ -1,5 +1,8 @@
 <div class="text-center">
-    <h4>Twoje rezerwacje:</h4>
+    <div class="top">
+      <h4>Twoje rezerwacje:</h4>
+    </div>
+    
     <div class="container rounded">
     <div class="kura">
   <div *ngIf='noresults; else resultsTemplate'></div>
@@ -47,7 +50,7 @@
       </div>
     </div>
   </ng-template>
-  <div class='alert alert-secondary' ><h2>{{ error }}</h2></div>
+  <span><h2>{{ error }}</h2></span>
   <br>
   </div>
   </div>
