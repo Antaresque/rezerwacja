@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Zrzut danych tabeli `klienci`
 --
 
-INSERT INTO `klienci` (`id_klienta`, `imie`, `nazwisko`, `nr_tel`, `email`, `haslo`, `login`) VALUES
+INSERT INTO `klienci` (`id_klienta`, `imie`, `nazwisko`, `nr_tel`, `email`, `haslo`, `login`, `aktywny`) VALUES
 (1, 'Yanush', 'Lisiasty', '656565656', 'adijedendwa@gmail.com', '$2y$11$cfwX0EE7tLMY16mTBRJlzOHRaBtyzM9l4cfqpR2ccULHlAp8Fcj46', 'Miszcz', '1'),
 (2, 'Alex', 'Yakumo', '565656565', 'olekfer@yahoo.pl', '$2y$11$6lUwrAvWMYPbFF/.ydLZF.GlLEULorF3fUrOjK4qrFjSjv8XQM19.', 'Uczeń', '1'),
 (3, 'Tadeusz', 'Koniuszko', '123456789', 'mail1@mail.com', '$2y$11$xdW/4pPTqaXm.RvIYMtnkuMGGmQSRNFK8juyl2LBrtpz2C7YfUBBW', 'Klient1', '1'),
