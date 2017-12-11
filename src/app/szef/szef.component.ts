@@ -58,14 +58,16 @@ export class SzefComponent implements OnInit {
     );
   }
   deletepok(id){
-    this.pok.delete(id).subscribe(
-      res => {
-        if('message' in res){
-          this.errorpok = res['message'];
+    if(confirm('Czy na pewno chcesz usunąć ten pokój?')){
+      this.pok.delete(id).subscribe(
+        res => {
+          if('message' in res){
+            this.errorpok = res['message'];
+          }
+          this.getpok();
         }
-        this.getpok();
-      }
-    );
+      );
+    }
   }
 
   //pracownicy
@@ -102,14 +104,16 @@ export class SzefComponent implements OnInit {
     );
   }
   deleteprac(id){
-    this.prac.delete(id).subscribe(
-      res => {
-        if('message' in res){
-          this.errorprac = res['message'];
+    if(confirm('Czy na pewno chcesz usunąć tego pracownika?')){
+      this.prac.delete(id).subscribe(
+        res => {
+          if('message' in res){
+            this.errorprac = res['message'];
+          }
+          this.getprac();
         }
-        this.getprac();
-      }
-    );
+      );
+    }
   }
 
 

@@ -13,6 +13,7 @@ import { SzefGuard } from './_core/guards/szef.guard';
 import { PracComponent } from './prac/prac.component';
 import { UserComponent } from './user/user.component';
 import { SzefComponent } from './szef/szef.component';
+import { SzefaddComponent } from './szef/szefadd/szefadd.component';
 import { PageNotFoundComponent } from './_public/pagenotfound/pagenotfound.component';
 
 const appRoutes: Routes = [
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
   { path: 'klient', component: UserComponent, canActivate: [KlientGuard] },
   { path: 'pracownik', component: PracComponent, canActivate: [PracGuard] },
   { path: 'szef', component: SzefComponent, canActivate: [SzefGuard] },
+  { path: 'szef/add', component: SzefaddComponent, canActivate: [SzefGuard] },
   { path: '**', component: PageNotFoundComponent } // 404
 ];
 
