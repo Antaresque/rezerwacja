@@ -1,6 +1,7 @@
-<form name="form" [formGroup] = "form" (ngSubmit)="registerEvent()" novalidate>
+<div *ngIf='param == "pracownicy"'>
+  <form name="form" [formGroup] = "form_prac" (ngSubmit)="registerPracownik()" novalidate>
     <div class="form-group">
-      <label for="login">Rejestracja</label>
+      <label for="login">Nowy pracownik</label>
       <input type="text" class="form-control" formControlName="login" placeholder="Nazwa użytkownika">
     </div>
     <div class="form-group " formGroupName="passGroup">
@@ -19,7 +20,13 @@
       <input type="text" placeholder="Nazwisko" class="form-control" formControlName="nazwisko">
     </div>
     <div class="form-group">
-      <input type="number" placeholder="Telefon" class="form-control" formControlName="telefon">
+      <input type="text" placeholder="Telefon" class="form-control" formControlName="telefon">
+    </div>
+    <div class="form-group">
+      <input type="text" placeholder="Pensja" class="form-control" formControlName="pensja">
+    </div>
+    <div class="form-group">
+      <input type="text" placeholder="Adres" class="form-control" formControlName="adres">
     </div>
     <button [disabled]="loading || form.invalid" class="btn btn-primary">Zarejestruj</button>
     <img *ngIf="loading" src="assets/loading.gif">
@@ -27,3 +34,20 @@
       {{this.error}}
     </div>
   </form>
+</div>
+<div *ngIf='param == "pokoje"'>
+  <form name="form" [formGroup] = "form_pok" (ngSubmit)="registerPokoj()" novalidate>
+    <div class="form-group">
+      <label for="login">Nowy pokój</label>
+       <input type="text" class="form-control" formControlName="typ" placeholder="Typ pokoju">
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Cena za noc" class="form-control" formControlName="cena">
+        </div>
+        <button [disabled]="loading || form.invalid" class="btn btn-primary">Zarejestruj</button>
+        <img *ngIf="loading" src="assets/loading.gif">
+        <div class="alert alert-danger mt-2" *ngIf="error">
+          {{this.error}}
+        </div>
+  </form>
+</div>
