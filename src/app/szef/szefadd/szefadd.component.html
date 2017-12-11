@@ -1,3 +1,10 @@
+<div class="container text-center">
+  <br>
+  <h3>Dodaj nowy wpis do bazy danych:</h3>
+  <br>
+  <div class="row">
+    <div class="col"></div>
+    <div class="col pan rounded">
 <div *ngIf='param == "pracownicy"'>
   <form name="form" [formGroup] = "form_prac" (ngSubmit)="registerPracownik()" novalidate>
     <div class="form-group">
@@ -50,4 +57,8 @@
           {{this.error}}
         </div>
   </form>
+</div>
+</div>
+<div class="col"></div>
+</div>
 </div>
