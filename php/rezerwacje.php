@@ -25,4 +25,8 @@ else if($request[0] == 'niezatwierdzone') {
   if(checkTokenAccess('pracownik'))
     include_once($path.'niezatw.php');
 }
+else if($request[0] == 'mojerezerw') {
+  if(checkTokenAccess('klient'))
+    include_once($path.'mojerezerw.php');
+}
 else error_message('UNDEFINED_FUNCTION');

@@ -37,6 +37,7 @@ export class PokojeListaComponent implements OnInit {
         }
         else{
           this.error = null;
+          this.pages = null;
           this.dane = res;
         }
         console.log(res);

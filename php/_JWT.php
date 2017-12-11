@@ -51,7 +51,8 @@ function checkTokenAccess($funkcja){
     catch(UnexpectedValueException $e){
       echo $e->getMessage(); return false;
     }
-    return ($payload->funkcja == $funkcja);
+    if ($payload->funkcja == $funkcja) return true;
+    else http_response_code(401);
   }
   else {
     http_response_code(401);
@@ -73,7 +74,8 @@ function checkTokenID($id){
     catch(UnexpectedValueException $e){
       echo $e->getMessage(); return false;
     }
-    return ($payload->id == $id);
+    if($payload->id == $id) return true;
+    else http_response_code(401);
   }
   else {
     http_response_code(401);

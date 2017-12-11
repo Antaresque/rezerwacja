@@ -23,6 +23,10 @@ export class RezerwacjeService {
     return this.ahttp.get(this.API_LINK + 'rezerwacje/niezatwierdzone').map(res => res.json());
   }
 
+  mojerezerw(){
+    return this.ahttp.get(this.API_LINK + 'rezerwacje/mojerezerw').map(res => res.json());
+  }
+
   accept(id){
     return this.ahttp.post(this.API_LINK + 'rezerwacje/accept', {id: id}).map(res => res.json());
   }

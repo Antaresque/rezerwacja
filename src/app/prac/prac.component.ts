@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PracComponent implements OnInit {
 
-  dane: [];
+  dane: any = [];
   error: string;
   noresults = false;
 
