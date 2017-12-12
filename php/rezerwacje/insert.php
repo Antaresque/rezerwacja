@@ -47,5 +47,3 @@ else {
     }
   }
 }
-
-// TODO: zrobic weryfikacje na mail

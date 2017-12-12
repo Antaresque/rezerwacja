@@ -14,4 +14,3 @@ if(DB::affectedRows() > 0) {
 }
 else error_message('RESERVATION_NOT_FOUND');
 
-// TODO: mail

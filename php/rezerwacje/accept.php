@@ -13,5 +13,3 @@ if(DB::affectedRows() > 0){
   mail_message($k_data['email'], 'CONFIRM', $string);
 }
 else error_message('RESERVATION_NOT_FOUND');
-
-// TODO: mail
